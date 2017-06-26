@@ -5,32 +5,11 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
-                    <hr>
-                    <h2 class="intro-text text-center" style=" margin-bottom: 20px; ">Liste des
-                        <strong>magazines</strong>
-                    </h2>
-                    <div class="col-md-offset-3 col-md-6 text-center">
-                        <form role="form" action="{{action('PublicationController@FiltreMagazine')}}" method="post">
-                            {!! csrf_field() !!}
-                            <div class="row">
-                                <div class="form-group col-lg-8">
-                                    <input placeholder="Rechercher un magazine" name="titre" type="text" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-3">
-                                    <button type="submit" class="btn btn-warning">Rechercher</button>
-                                </div>
-                                <div class="form-group col-lg-1">
-                                    <a href="{{ url('/listemagazine') }}" class="btn btn-info">Retour</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <ul class="pager" style="margin-top: 0px;margin-bottom: 0px;height: 50px;">
-                        {{$publication->links()}}
-                    </ul>
-                    @foreach($publication as $article)
+
+
+                    @foreach (json_decode($publication) as $article)
+
+                    {{--@foreach($publication as $article)--}}
                         <hr class="hr-primary" /><br><br>
                         <div class="row">
                             <div class="col-lg-8">
@@ -62,9 +41,7 @@
                     @endforeach
                 </div>
                 <div class="clearfix"></div>
-                <ul class="pager">
-                    {{$publication->links()}}
-                </ul>
+
             </div>
         </div>
     </div>

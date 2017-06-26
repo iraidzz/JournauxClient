@@ -32,11 +32,11 @@ class MagazineController
         $ch = curl_init($url);
         curl_setopt_array($ch, $options);
 
-        $publications = json_decode(curl_exec($ch), true);
+        $publication = json_decode(curl_exec($ch), true);
 
         curl_close($ch);
 
-        return view('magazine')->with('publications', $publications);
+        return view('magazine')->with('publication', $publication);
     }
 
 
