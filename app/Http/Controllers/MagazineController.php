@@ -33,6 +33,7 @@ class MagazineController
         curl_setopt_array($ch, $options);
 
         $publication = json_decode(curl_exec($ch), true);
+        dd($publication);
 
         curl_close($ch);
 
