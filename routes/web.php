@@ -42,3 +42,14 @@ Route::get('/about', function ()
 
 
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
+
+// --- Authentification --- //
+//Connexion
+Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
+//Déconnexion
+Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
+
+//Page enregistrement client (inscription)
+Route::get('/client/inscription', 'ClientController@inscription');
+//Validation enregistrement client (inscription)
+Route::post('/client/ajouter', 'ClientController@ajouter');
