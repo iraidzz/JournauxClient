@@ -1,8 +1,5 @@
 @extends('layouts.template')
 @section('content')
-
-
-
     <!-- Portfolio Grid Section -->
         <div class="container">
             <div class="row">
