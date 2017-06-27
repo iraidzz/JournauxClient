@@ -11,16 +11,16 @@
         <h1>Inscrivez-vous !</h1>
 
         <form class="form" action="{{action('ClientController@ajouter')}}">
-            <input type="text" placeholder="Nom">
-            <input type="text" placeholder="Prénom">
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="text" placeholder="Numero de téléphone">
-            <input type="date" placeholder="Date de naissance">
-            <input type="text" placeholder="Lieu naissance">
-            <input type="text" placeholder="Adresse de domicile">
-            <input type="number" placeholder="Code postal">
-            <input type="text" placeholder="Ville"><br>
+            <input name="name" type="text" placeholder="Nom">
+            <input name="prenom" type="text" placeholder="Prénom">
+            <input name="email" type="text" placeholder="Email">
+            <input name="password" type="password" placeholder="Password">
+            <input name="numero_telephone" type="text" placeholder="Numero de téléphone">
+            <input name="date_naissance" type="date" placeholder="Date de naissance">
+            <input name="lieu_naissance" type="text" placeholder="Lieu naissance">
+            <input name="adresse_domicile" type="text" placeholder="Adresse de domicile">
+            <input name="postal_domicile" type="number" placeholder="Code postal">
+            <input name="ville_domicile" type="text" placeholder="Ville"><br>
             <button type="submit">S'enregistrer</button>
         </form>
     </div>
