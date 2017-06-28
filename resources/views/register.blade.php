@@ -12,6 +12,10 @@
 
         <form class="form" action="{{url('/client/ajouter')}}" method="post">
             {!! csrf_field() !!}
+            <select name="civilite" type="text" class="form-control">
+                <option value="MR" selected>MR</option>
+                <option value="MME">MME</option>
+            </select>
             <input name="name" type="text" placeholder="Nom">
             <input name="prenom" type="text" placeholder="Prénom">
             <input name="email" type="text" placeholder="Email">
