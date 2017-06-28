@@ -40,6 +40,7 @@ Route::get('/about', function ()
     return view('about');
 });
 
+Route::post('/client/authentifier', 'UserController@Authentifier');
 
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 
