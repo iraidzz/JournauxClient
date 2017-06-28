@@ -15,8 +15,8 @@ class MagazineController
     public function DisplayMagazine()
     {
 
-//        $url= "http://journaux.dev/api/magazine/lister";
-        $url= "http://10.0.10.110/api/magazine/lister";
+        $url= "http://journaux.dev/api/magazine/lister";
+        //$url= "http://10.0.10.110/api/magazine/lister";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page

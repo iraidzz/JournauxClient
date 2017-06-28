@@ -42,10 +42,13 @@ Route::get('/about', function ()
 
 Route::post('/client/authentifier', 'UserController@Authentifier');
 
+// Route affichage liste comlète des magazines
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 
+// Route "Mes abonnements en cours"
+Route::get('/client/mesabonnements', 'ClientController@mesabonnements');
 
-Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
+// --- Authentification --- //
 
 //Page enregistrement client (inscription)
 Route::get('/client/inscription', 'ClientController@inscription');

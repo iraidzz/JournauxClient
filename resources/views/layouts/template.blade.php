@@ -65,7 +65,7 @@
                         <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Mes abonnements en cours</a>
+                        <a class="page-scroll" href="/client/mesabonnements">Mes abonnements en cours</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Mon compte</a>
