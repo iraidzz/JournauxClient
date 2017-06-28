@@ -26,7 +26,9 @@
             <input name="adresse_domicile" type="text" placeholder="Adresse de domicile">
             <input name="postal_domicile" type="number" placeholder="Code postal">
             <input name="ville_domicile" type="text" placeholder="Ville"><br>
-            <button type="submit">S'enregistrer</button>
+            <button type="submit">S'enregistrer</button><br><br>
+
+            <a href="/client/authenti">Retour</a>
         </form>
     </div>
 
