@@ -70,10 +70,37 @@
                     <li>
                         <a class="page-scroll" href="#portfolio">Mon compte</a>
                     </li>
+                    {{--<li>--}}
+                        {{--<a class="page-scroll" href="#contact"><u><i><b>Déconnexion</b></i></u></a>--}}
+
+                    {{--</li>--}}
                     <li>
-                        <a class="page-scroll" href="#contact"><u><i><b>Déconnexion</b></i></u></a>
-                    </li>
-                </ul>
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li></li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

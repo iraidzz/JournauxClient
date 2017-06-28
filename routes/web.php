@@ -53,3 +53,7 @@ Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
 Route::get('/client/inscription', 'ClientController@inscription');
 //Validation enregistrement client (inscription)
 Route::post('/client/ajouter', 'ClientController@ajouter');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
