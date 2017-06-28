@@ -44,10 +44,7 @@ Route::post('/client/authentifier', 'UserController@Authentifier');
 
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 
-// --- Authentification --- //
-//Connexion
-Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
-//Déconnexion
+
 Route::post('/magazine/lister', 'MagazineController@DisplayMagazine');
 
 //Page enregistrement client (inscription)
