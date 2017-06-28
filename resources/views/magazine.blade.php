@@ -33,15 +33,26 @@
                         @else
                             {{$contenu}}
                         @endif
-                        <label>Nombre de parution annuel</label>
-                        <input disabled value="{{$article['nombre_numero']}}"><br>
-                        <label>Prix à l'année</label><br>
-                        <input disabled value="{{$article['prix_annuel']}} €">
-                        <br>
-                        <a href="#portfolioModal{{$article['id']}}" class="portfolio-link" data-toggle="modal">
-                        Détails
-                        </a>
 
+                        <div class="form-group col-xs-6">
+                            <label>Parutions annuelles</label>
+                            <a href="" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-list-alt"> {{$article['nombre_numero']}}</i>
+                            </a>
+                        </div>
+
+                        <div class="form-group col-xs-6">
+                            <label>Prix à l'année</label><br>
+                            <a href="" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-euro"> {{$article['prix_annuel']}}</i>
+                            </a>
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                            <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
+                                <i class="glyphicon glyphicon-eye-open"> Détail</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
