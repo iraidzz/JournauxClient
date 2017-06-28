@@ -10,7 +10,8 @@
     <div class="container">
         <h1>Inscrivez-vous !</h1>
 
-        <form class="form" action="{{action('ClientController@ajouter')}}">
+        <form class="form" action="{{url('/client/ajouter')}}" method="post">
+            {!! csrf_field() !!}
             <input name="name" type="text" placeholder="Nom">
             <input name="prenom" type="text" placeholder="Prénom">
             <input name="email" type="text" placeholder="Email">

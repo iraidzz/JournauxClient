@@ -76,7 +76,7 @@
                                         <i class="fa fa-plus"> S'abonner</i>
 
                                 </a>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Retour</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"> Retour</i> </button>
 
 
 
