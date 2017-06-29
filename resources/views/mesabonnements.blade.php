@@ -1,10 +1,8 @@
 @extends('layouts.template')
 @section('content')
-
     <style>
         hr {
             height: 4px;
-            margin-left: 15px;
             margin-bottom:-3px;
         }
         .hr-primary{
@@ -21,37 +19,35 @@
 
     @foreach($publications as $article)
         <!-- Portfolio Grid Section -->
-        <div class="container">
-
-            <div class="row">
-                <hr class="hr-primary" />
+        <div class="container" >
+            <div class="row" >
+                <hr class="hr-primary" style="margin-top: 0px;" />
                 <div class="col-lg-12 text-center">
+                    {{--<div class="row" style="background-color: rgba(255,0,0,0.25)">--}}
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item">
-                            <div class="form-group col-xs-5">
-                                <a href="#portfolioModal{{$article['id']}}" class="portfolio-link" data-toggle="modal"><BR>
-                                    <img width="80px" height="80px" src="{{$article['photo_couverture']}}" class="img-responsive img-centered" alt="">
-                                </a>
-                            </div>
-
-                            <div class="form-group col-xs-7">
-                                <BR><label>Nom</label>
-                                <input type="text" class="hr-input text-jaunefonce" style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;" disabled value="{{$article['titre']}}">
-                                <label>Fin abonnement</label><br>
-                                <input type="text" class="hr-input text-jaunefonce    " style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;" disabled value="10/12/2017">
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
-                                <i> Détail</i>
+                    <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item">
+                        <div class="form-group col-xs-5">
+                            <a href="#portfolioModal{{$article['id']}}" class="portfolio-link" data-toggle="modal"><BR>
+                                <img width="80px" height="80px" src="{{$article['photo_couverture']}}" class="img-responsive img-centered" alt="">
                             </a>
                         </div>
+                        <div class="form-group col-xs-7">
+                            <BR><label>Nom</label>
+                            <input type="text" class="hr-input text-jaunefonce" style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;" disabled value="{{$article['titre']}}">
+                            <label>Fin abonnement</label><br>
+                            <input type="text" class="hr-input text-jaunefonce" style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;" disabled value="10/12/2017">
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
+                            <i> Détail</i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
 
-        <!-- Portfolio Modal 1 -->
         <div class="portfolio-modal modal fade" id="portfolioModal{{$article['id']}}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -65,7 +61,6 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="modal-body">
-                                    <!-- Project Details Go Here -->
                                     <h2>{{$article['titre']}}</h2>
                                     <img width="210px" height="100px" class="img-responsive img-centered" src="{{$article['photo_couverture']}}" alt="">
                                     <p class="text-muted">
@@ -77,7 +72,7 @@
                                     </p>
 
                                     <a href="" class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-heart"> Renouveller abonnement <br>(1 année)</i>
+                                        <i class="glyphicon glyphicon-heart"> Renouveler abonnement <br>(1 année)</i>
                                     </a><br><br>
                                     <a href="" class="btn btn-danger">
                                         <i class="glyphicon glyphicon-ban-circle"> Suspendre abonnement</i>
