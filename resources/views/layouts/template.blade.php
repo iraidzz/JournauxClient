@@ -107,9 +107,6 @@
 
     <!-- Header -->
 
-
-
-
     @yield('content')
 
 
