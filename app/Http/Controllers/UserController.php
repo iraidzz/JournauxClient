@@ -49,11 +49,14 @@ class UserController extends Controller
     }
     public function Logout()
     {
-        if (isset($_COOKIE['CookieName'])) {
+        if (isset($_COOKIE['CookieName']) || isset($_COOKIE['CookieId'])) {
             unset($_COOKIE['CookieName']);
+            unset($_COOKIE['CookieId']);
             setcookie('CookieName', '', time() - 3600, '/'); // empty value and old timestamp
+            setcookie('CookieId', '', time() - 3600, '/'); // empty value and old timestamp
         }
-        return redirect('/intro');
+
+        return redirect('/login');
 
     }
 }

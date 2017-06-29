@@ -61,44 +61,32 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/client/mesabonnements">Mes abonnements en cours</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/client/moncompte">Mon compte</a>
-                    </li>
-                    {{--<li>--}}
-                        {{--<a class="page-scroll" href="#contact"><u><i><b>Déconnexion</b></i></u></a>--}}
 
-                    {{--</li>--}}
-                    <li>
-                        <!-- Authentication Links -->
-                        @if ( \Illuminate\Support\Facades\Cookie::get('CookieName') == "")
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{\Illuminate\Support\Facades\Cookie::get('CookieName')}} <span class="caret"></span>
-                                </a>
+                    @if ( \Illuminate\Support\Facades\Cookie::get('CookieName') == "")
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
+                        <li><a href="{{ route('register') }}">S'enregistrer</a></li>
+                    @else
+                        <li>
+                            <a class="page-scroll text-primary" href="">Bonjour {{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="/client/mesabonnements">Mes abonnements en cours</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="/client/moncompte">Mon compte</a>
+                        </li>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="/client/logout">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ action('UserController@Logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li></li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
+                        <li>
+                            <a class="page-scroll" href="/client/logout">Déconnexion</a>
+                            <form id="logout-form" action="{{ action('UserController@Logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
