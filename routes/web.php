@@ -15,28 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function ()
-{
+Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/contact', function ()
-{
+Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/intro', function ()
-{
+Route::get('/intro', function () {
     return view('intro');
 });
 
-Route::get('/portefolio', function ()
-{
+Route::get('/portefolio', function () {
     return view('portefolio');
 });
 
-Route::get('/about', function ()
-{
+Route::get('/about', function () {
     return view('about');
 });
 
@@ -50,6 +45,9 @@ Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 // Route "Mes abonnements en cours"
 Route::get('/client/mesabonnements', 'ClientController@mesabonnements');
 
+// Gestion du compte client
+Route::get('/client/moncompte', 'ClientController@MonCompte');
+Route::post('/client/editcompte', 'ClientController@EditCompte');
 
 //Page enregistrement client (inscription)
 Route::get('/client/inscription', 'ClientController@inscription');
