@@ -68,7 +68,7 @@
                         <a class="page-scroll" href="/client/mesabonnements">Mes abonnements en cours</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Mon compte</a>
+                        <a class="page-scroll" href="/client/moncompte">Mon compte</a>
                     </li>
                     {{--<li>--}}
                         {{--<a class="page-scroll" href="#contact"><u><i><b>Déconnexion</b></i></u></a>--}}
