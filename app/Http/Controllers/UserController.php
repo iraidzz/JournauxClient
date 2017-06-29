@@ -9,16 +9,19 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+
 class UserController extends Controller
 {
 
-    public function Authentifier()
+    public function Authentifier(Request $request)
     {
 
         $ch = curl_init();
         // configuration des options
-//        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/enregistrer");
-        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/authentifier");
+        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/authentifier");
+//        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/authentifier");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         // data à envoyer
@@ -28,15 +31,29 @@ class UserController extends Controller
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         // exécution de la session : $content est le retour de l'api
-        $content = json_decode(curl_exec($ch), true);
+        $content = json_decode(curl_exec($ch), true)['result'];
+
+
         // fermeture de la session
-        dd($content);
         curl_close($ch);
 
+        foreach($content as $UserData)
+        {
+            $cookie = Cookie::make('CookieName', $UserData['name']);
+            $cookieid = Cookie::make('CookieId', $UserData['id']);
 
-        return view('intro');
+        }
+
+        return redirect('/intro')->withCookie($cookie)->withCookie(($cookieid));
 
     }
+    public function Logout()
+    {
+        if (isset($_COOKIE['CookieName'])) {
+            unset($_COOKIE['CookieName']);
+            setcookie('CookieName', '', time() - 3600, '/'); // empty value and old timestamp
+        }
+        return redirect('/intro');
 
-
+    }
 }

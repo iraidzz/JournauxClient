@@ -34,7 +34,7 @@ class MagazineController
         curl_setopt_array($ch, $options);
 
         $publications = json_decode(curl_exec($ch), true)['result'];
-
+        
         curl_close($ch);
 
         return view('magazine')->with('publications', $publications);

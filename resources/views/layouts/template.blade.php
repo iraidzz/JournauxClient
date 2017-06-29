@@ -76,13 +76,13 @@
                     {{--</li>--}}
                     <li>
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
+                        @if ( \Illuminate\Support\Facades\Cookie::get('CookieName') == "")
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{\Illuminate\Support\Facades\Cookie::get('CookieName')}} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

@@ -1,8 +1,11 @@
 @extends('layouts.template')
-@section('content') 
+@section('content')
+
+    {{\Illuminate\Support\Facades\Cookie::get('CookieName')}}
+    {{\Illuminate\Support\Facades\Cookie::get('CookieId')}}
 
 
- <!-- Services Section -->
+    <!-- Services Section -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

@@ -40,7 +40,9 @@ Route::get('/about', function ()
     return view('about');
 });
 
+//Authentification et déconnexion
 Route::post('/client/authentifier', 'UserController@Authentifier');
+Route::get('/client/logout', 'UserController@Logout');
 
 // Route affichage liste comlète des magazines
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
@@ -48,7 +50,6 @@ Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 // Route "Mes abonnements en cours"
 Route::get('/client/mesabonnements', 'ClientController@mesabonnements');
 
-// --- Authentification --- //
 
 //Page enregistrement client (inscription)
 Route::get('/client/inscription', 'ClientController@inscription');
