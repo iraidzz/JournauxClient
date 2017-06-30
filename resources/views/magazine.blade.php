@@ -73,20 +73,23 @@
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="modal-body">
                                     <!-- Project Details Go Here -->
-                                    <h2>{{$article['titre']}}</h2>
-                                    <img width="210px" height="100px" class="img-responsive img-centered" src="{{$article['photo_couverture']}}" alt="">
-                                    <p class="text-muted"> {{$article['description']}} </p>
-                                    <p>{{$article['nombre_numero']}} magazines par an <br>
-                                        {{$article['prix_annuel']}}€ par an <br></p>
+                                    <form class="form" action="{{url('/client/sabonner')}}" method="post">
+                                        {!! csrf_field() !!}
+                                        <input name="client_id" type="hidden" value="{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">
+                                        <input name="publication_id" type="hidden" value="{{$article['id']}}">
+                                        <input name="date_debut" type="hidden" value="<?=date("Y-m-d");?>">
+                                        <input name="date_fin" type="hidden" value="<?=date('Y-m-d', strtotime('+1 year'));?>">
+                                        <input name="date_pause" type="hidden" value="0000-00-00">
 
-                                    <a href="" class="btn btn-primary">
+                                        <h2>{{$article['titre']}}</h2>
+                                        <img width="210px" height="100px" class="img-responsive img-centered" src="{{$article['photo_couverture']}}" alt="">
+                                        <p class="text-muted"> {{$article['description']}} </p>
+                                        <p>{{$article['nombre_numero']}} magazines par an <br>
+                                            {{$article['prix_annuel']}}€ par an <br></p>
 
-                                        <i class="fa fa-plus"> S'abonner</i>
-                                    </a>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"> Retour</i> </button>
+                                        <button type="submit" class="btn btn-primary">S'abonner</button>
 
-
-
+                                    </form>
                                 </div>
                             </div>
                         </div>
