@@ -199,42 +199,6 @@ class ClientController extends Controller
         return view('editclient')->with('compteinfo', $compteinfo);
     }
 
-//    public function EditCompte()
-//    {
-//
-//        $ch = curl_init();
-//        // configuration des options
-//        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/edit");
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_HEADER, 0);
-//
-//
-//        // data à envoyer
-//        $data = [];
-//        $data['user']['name'] = request()->only('name')['name'];
-//        $data['user']['email'] = request()->only('email')['email'];
-//        $data['user']['password'] = request()->only('password')['password'];
-//        $data['user']['prenom'] = request()->only('prenom')['prenom'];
-//        $data['user']['civilite'] = request()->only('civilite')['civilite'];
-//        $data['user']['numero_telephone'] = request()->only('numero_telephone')['numero_telephone'];
-//        $data['user']['date_naissance'] = request()->only('date_naissance')['date_naissance'];
-//        $data['user']['lieu_naissance'] = request()->only('lieu_naissance')['lieu_naissance'];
-//        $data['user']['adresse_domicile'] = request()->only('adresse_domicile')['adresse_domicile'];
-//        $data['user']['postal_domicile'] = request()->only('postal_domicile')['postal_domicile'];
-//        $data['user']['ville_domicile'] = request()->only('ville_domicile')['ville_domicile'];
-//
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-//
-//        // exécution de la session : $compteinfo est le retour de l'api
-//        $compteinfo = json_decode(curl_exec($ch), true);
-//
-//        dd($ch);
-//        // fermeture de la session
-//        curl_close($ch);
-//
-//        return redirect('/intro');
-//    }
-
     public function EditCompte()
     {
         $id=request()->only('id')['id'];
@@ -261,7 +225,7 @@ class ClientController extends Controller
 
         curl_close($ch);
 
-                return redirect('/intro');
+                return redirect('/client/moncompte/'.$id);
 
     }
 
