@@ -118,30 +118,32 @@ class ClientController extends Controller
 
     }
 
+
     public function sabonner()
     {
 
+        $client_id=request()->only('client_id')['client_id'];
+        $publication_id=request()->only('publication_id')['publication_id'];
+        // quand on passe par les données date envoye erreur sur le format date alors qu'en dur sa passe
+//        $date_debut=request()->only('date_debut')['date_debut'];
+//        $date_fin=request()->only('date_fin')['date_fin'];
+//        $date_pause=request()->only('date_pause')['date_pause'];
+
+        $date_debut="2010-12-02";
+        $date_fin="2010-12-02";
+        $date_pause="2010-12-02";
+
         $ch = curl_init();
+        $url = "http://journaux.dev/api/client/sabonner";
         // configuration des options
-        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/sabonner");
-        //curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/sabonner");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        // data à envoyer
-        $data = [];
-        $data['sabo']['client_id'] = request()->only('client_id')['client_id'];
-        $data['sabo']['publication_id'] = request()->only('publication_id')['publication_id'];
-        $data['sabo']['date_debut'] = request()->only('date_debut')['date_debut'];
-        $data['sabo']['date_fin'] = request()->only('date_fin')['date_fin'];
-        $data['sabo']['date_pause'] = request()->only('date_pause')['date_pause'];
-
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        //dd($data);
-
-        // exécution de la session : $content est le retour de l'api
-        $content = json_decode(curl_exec($ch), true);
-        // fermeture de la session
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"client_id=$client_id&publication_id=$publication_id&date_debut=$date_debut&date_fin=$date_fin&date_pause=$date_pause");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
         curl_close($ch);
+
+        return redirect('/intro');
 
     }
 
@@ -219,7 +221,7 @@ class ClientController extends Controller
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"id=$id&name=$name&email=$email&password=$password&prenom=$prenom&civilite=$civilite&numero_telephone=$numero_telephone&date_naissance=$date_naissance&lieu_naissance=$lieu_naissance&adresse_domicile=$adresse_domicile&postal_domicile=$postal_domicile&ville_domicile=$ville_domicile&");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id=$id&name=$name&email=$email&password=$password&prenom=$prenom&civilite=$civilite&numero_telephone=$numero_telephone&date_naissance=$date_naissance&lieu_naissance=$lieu_naissance&adresse_domicile=$adresse_domicile&postal_domicile=$postal_domicile&ville_domicile=$ville_domicile");
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $content =curl_exec($ch);
 
