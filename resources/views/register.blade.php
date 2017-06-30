@@ -28,7 +28,7 @@
             <input name="ville_domicile" type="text" placeholder="Ville"><br>
             <button type="submit">S'enregistrer</button><br><br>
 
-            <a href="/client/authentier">Retour</a>
+            <a href="/login">Retour</a>
         </form>
     </div>
 
