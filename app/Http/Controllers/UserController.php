@@ -33,7 +33,6 @@ class UserController extends Controller
         // exécution de la session : $content est le retour de l'api
         $content = json_decode(curl_exec($ch), true)['result'];
 
-
         // fermeture de la session
         curl_close($ch);
 

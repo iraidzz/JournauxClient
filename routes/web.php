@@ -46,8 +46,9 @@ Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 Route::get('/client/mesabonnements', 'ClientController@mesabonnements');
 
 // Gestion du compte client
-Route::get('/client/moncompte', 'ClientController@MonCompte');
-Route::post('/client/editcompte', 'ClientController@EditCompte');
+Route::get('/client/moncompte/{id}', 'ClientController@MonCompte');
+Route::get('/client/affichereditcompte/{id}', 'ClientController@DisplayEditCompte');
+Route::post('/client/edit',"ClientController@EditCompte" );
 
 //Page enregistrement client (inscription)
 Route::get('/client/inscription', 'ClientController@inscription');
