@@ -125,13 +125,15 @@ class ClientController extends Controller
         $client_id=request()->only('client_id')['client_id'];
         $publication_id=request()->only('publication_id')['publication_id'];
         // quand on passe par les données date envoye erreur sur le format date alors qu'en dur sa passe
-//        $date_debut=request()->only('date_debut')['date_debut'];
-//        $date_fin=request()->only('date_fin')['date_fin'];
-//        $date_pause=request()->only('date_pause')['date_pause'];
+        $date_debut=request()->only('date_debut')['date_debut'];
+        $date_fin=request()->only('date_fin')['date_fin'];
+        //$date_pause=request()->only('date_pause')['date_pause'];
+        $date_pause=$date_fin;
 
-        $date_debut="2010-12-02";
-        $date_fin="2010-12-02";
-        $date_pause="2010-12-02";
+        //dd($date_debut);
+        //$date_debut="2019-12-02";
+        //$date_fin="2020-12-02";
+        //$date_pause="2001-01-01";
 
         $ch = curl_init();
         $url = "http://journaux.dev/api/client/sabonner";
