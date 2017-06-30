@@ -54,7 +54,7 @@
                                                         <?php
                                                         // On calcule depuis combien de temps l'abonnement est actif . S'il se termine dans les deux mois à venir , on active un bonton "Abonnement bientot terminé"
                                                         $datetime1 = date_create($article['date_fin']);
-                                                        $datetime2 = date_create(date("Y-m-d H:i:s"));
+                                                        $datetime2 = date_create(date("Y-m-d"));
                                                         $interval = date_diff($datetime2,$datetime1);
                                                         if($interval->days<60) // 60 jours
                                                         {

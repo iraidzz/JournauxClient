@@ -73,7 +73,7 @@
                         <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/client/mesabonnements">Mes abonnements en cours</a>
+                        <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>

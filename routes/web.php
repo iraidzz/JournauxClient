@@ -43,7 +43,7 @@ Route::get('/client/logout', 'UserController@Logout');
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 
 // Route "Mes abonnements en cours"
-Route::get('/client/mesabonnements', 'ClientController@mesabonnements');
+Route::get('/client/mesabonnements/{id}', 'ClientController@mesabonnements');
 // Route "S'abonner"
 Route::post('/client/sabonner', 'ClientController@sabonner');
 

@@ -42,7 +42,7 @@ class ClientController extends Controller
 
     }
 
-    public function mesabonnements()
+    public function mesabonnements($id)
     {
         // -------- Premiere partie, on rappatrie les Informations des abonnements du client -------
         //client_id
@@ -52,7 +52,7 @@ class ClientController extends Controller
         //date_pause
         //////////////////////////////////////////////////////////
 
-        $url= "http://journaux.dev/api/client/mesabonnements";
+        $url= "http://journaux.dev/api/client/mesabonnements/$id";
         //$url= "http://10.0.10.110/api/magazine/lister";
 
         $options = array(
