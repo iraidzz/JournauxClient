@@ -9,6 +9,11 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
+
 class MagazineController
 {
 
@@ -34,10 +39,32 @@ class MagazineController
         curl_setopt_array($ch, $options);
 
         $publications = json_decode(curl_exec($ch), true)['result'];
-        
+
         curl_close($ch);
 
         return view('magazine')->with('publications', $publications);
+    }
+
+
+    public function FiltreMagazine(Request $request)
+    {
+
+        $post = $request->all();
+        $laValeurRecherchee = $post['titre'];
+
+        $ch = curl_init();
+        $url= "http://journaux.dev/api/magazine/filtrer";
+
+        // configuration des options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"titre=$laValeurRecherchee");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
+        curl_close($ch);
+//dd($idAbonnement);
+        return redirect('/magazine/filtrer');
+
     }
 
 

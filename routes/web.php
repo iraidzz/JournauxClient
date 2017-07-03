@@ -41,6 +41,10 @@ Route::get('/client/logout', 'UserController@Logout');
 
 // Route affichage liste comlète des magazines
 Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
+// Route recherche magazines
+Route::post('/magazine/filtrer', 'MagazineController@FiltreMagazine');
+
+
 
 // Route "Mes abonnements en cours"
 Route::get('/client/mesabonnements/{id}', 'ClientController@mesabonnements');

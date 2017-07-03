@@ -43,7 +43,7 @@ class UserController extends Controller
 
         }
 
-        return redirect('/intro')->withCookie($cookie)->withCookie(($cookieid));
+        return redirect('/client/mesabonnements/'.$UserData['id'])->withCookie($cookie)->withCookie(($cookieid));
 
     }
     public function Logout()

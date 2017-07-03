@@ -12,6 +12,17 @@
         }
     </style>
 
+    <form role="form" action="{{action('MagazineController@FiltreMagazine')}}" method="post">
+        {!! csrf_field() !!}
+        <div class="row">
+            <div class="form-group col-lg-8">
+                <input placeholder="Rechercher un magazine" name="titre" type="text" class="form-control">
+            </div>
+            <div class="form-group col-lg-3">
+                <center><button type="submit" class="btn btn-warning">Rechercher</button>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/magazine/lister" class="btn btn-info">Retour</a></center>
+            </div>
+        </div>
+    </form>
     @foreach($publications as $article)
         <hr class="hr-primary" />
 

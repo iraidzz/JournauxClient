@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>Application abonnement Magazines</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,9 @@
 <header>
     <div class="container">
         <div class="intro-text">
-
+qqzdqzdq
+            dzqdzqzd
+            qzdqz
         </div>
     </div>
 </header>
@@ -51,7 +53,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand page-scroll" href="/magazine/lister">Journaux en folie</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,7 +68,7 @@
                     <li><a href="{{ route('register') }}">S'enregistrer</a></li>
                 @else
                     <li>
-                        <a class="page-scroll text-primary" href="">Bonjour {{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</a>
+                        <a class="page-scroll text-primary" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
