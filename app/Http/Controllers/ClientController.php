@@ -41,7 +41,60 @@ class ClientController extends Controller
         curl_close($ch);
 
     }
+    public function mesanciensabonnements($id)
+    {
+        $url= "http://journaux.dev/api/client/mesanciensabonnements/$id";
 
+        $options = array(
+            CURLOPT_RETURNTRANSFER => true,   // return web page
+            CURLOPT_HEADER         => false,  // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+            CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+            CURLOPT_ENCODING       => "",     // handle compressed
+            CURLOPT_USERAGENT      => "", // name of client
+            CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+            CURLOPT_TIMEOUT        => 120,    // time-out on response
+        );
+
+        $ch = curl_init($url);
+        curl_setopt_array($ch, $options);
+
+        $mesabonnements = json_decode(curl_exec($ch), true)['result'];
+
+
+        foreach($mesabonnements as $UserData)
+        {
+            $idPublication[] = $UserData['publication_id'];
+        }
+        curl_close($ch);
+
+
+        $url2= "http://journaux.dev/api/magazine/lister";
+
+        $options2 = array(
+            CURLOPT_RETURNTRANSFER => true,   // return web page
+            CURLOPT_HEADER         => false,  // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+            CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+            CURLOPT_ENCODING       => "",     // handle compressed
+            CURLOPT_USERAGENT      => "", // name of client
+            CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+            CURLOPT_TIMEOUT        => 120,    // time-out on response
+        );
+
+        $ch2 = curl_init($url2);
+        curl_setopt_array($ch2, $options2);
+
+        $publications2 = json_decode(curl_exec($ch2), true)['result'];
+
+        curl_close($ch2);
+
+        return view('mesabonnements')->with('mesabonnements', $mesabonnements)->with('publications', $publications2);
+
+
+    }
     public function mesabonnements($id)
     {
         // -------- Premiere partie, on rappatrie les Informations des abonnements du client -------

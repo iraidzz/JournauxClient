@@ -104,10 +104,6 @@
 
                                                                     <button type="submit" class="btn btn-warning glyphicon glyphicon-heart-empty"> Renouveler abonnement <br>(1 année)</button>
 
-                                                                    {{--<br><br>--}}
-                                                                    {{--<a href="/client/suspendreabonnement" class="btn btn-danger">--}}
-                                                                        {{--<i class="glyphicon glyphicon-ban-circle"> Suspendre abonnement</i>--}}
-                                                                    {{--</a>--}}
                                                                 </form><br>
                                                                 <form class="form" action="{{url('/client/suspendreabonnement')}}" method="post">
                                                                     {!! csrf_field() !!}

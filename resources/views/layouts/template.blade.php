@@ -76,6 +76,9 @@
                         <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="/client/mesanciensabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes anciens abonnemnents</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>
                     </li>
 
