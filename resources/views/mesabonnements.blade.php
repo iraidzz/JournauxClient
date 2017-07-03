@@ -17,22 +17,34 @@
         }
     </style>
 
-
-    @foreach($mesabonnements as $article)
-        <!-- Portfolio Grid Section -->
-
+    @if($mesabonnements==null)  {{--Il n'y a riens à afficher--}}
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="row">
                         <div class="col-md-4 col-sm-6 portfolio-item">
+                            <h3><i>Oups... <br>Vous n'avez pour le moment aucun abonnement en cour. Nous vous invitons à vous redirigez vers la liste des magazines. </i><br><br><u><a href="/magazine/lister">C'est par ici!</a></u></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else {{--Il y a du contenu à afficher--}}
+        @foreach($mesabonnements as $article)
+            <!-- Portfolio Grid Section -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 portfolio-item">
 
                             @foreach($publications as $pub)
                                 @if($pub['id']==$article['publication_id'])
                                     <!-- Portfolio Grid Section -->
-                                    <div class="row" >
-                                        <hr class="hr-primary" style="margin-top: 0px;" />
-                                        <div class="col-lg-12 text-center">
+                                        <div class="row" >
+                                            <hr class="hr-primary" style="margin-top: 0px;" />
+                                            <div class="col-lg-12 text-center">
                                                 <div class="row">
                                                     <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item">
                                                         <div class="form-group col-xs-5">
@@ -58,73 +70,76 @@
                                                         $interval = date_diff($datetime2,$datetime1);
                                                         if($interval->days<60) // 60 jours
                                                         {
-                                                            ?>
-                                                            <br><br>
-                                                            <a href="#portfolioModal{{$pub['id']}}" class="glyphicon glyphicon-warning-sign btn btn-danger" data-toggle="modal">
-                                                                <i> Abonnement bientôt terminé</i>
-                                                            </a>
-                                                            <?php
+                                                        ?>
+                                                        <br><br>
+                                                        <a href="#portfolioModal{{$pub['id']}}" class="glyphicon glyphicon-warning-sign btn btn-danger" data-toggle="modal">
+                                                            <i> Abonnement bientôt terminé</i>
+                                                        </a>
+                                                        <?php
                                                         }
                                                         ?>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="portfolio-modal modal fade" id="portfolioModal{{$pub['id']}}" tabindex="-1" role="dialog" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="close-modal" data-dismiss="modal">
-                                                    <div class="lr">
-                                                        <div class="rl">
+                                        <div class="portfolio-modal modal fade" id="portfolioModal{{$pub['id']}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="close-modal" data-dismiss="modal">
+                                                        <div class="lr">
+                                                            <div class="rl">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-lg-8 col-lg-offset-2">
-                                                            <div class="modal-body">
-                                                                <form class="form" action="{{url('/client/renouvelerabonnement')}}" method="post">
-                                                                    {!! csrf_field() !!}
-                                                                    <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
-                                                                    <input name="date_fin" type="hidden" value="{{$article['date_fin']}}">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-lg-offset-2">
+                                                                <div class="modal-body">
+                                                                    <form class="form" action="{{url('/client/renouvelerabonnement')}}" method="post">
+                                                                        {!! csrf_field() !!}
+                                                                        <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
+                                                                        <input name="date_fin" type="hidden" value="{{$article['date_fin']}}">
 
 
-                                                                    <h2>{{$pub['titre']}}</h2>
-                                                                    <img width="210px" height="100px" class="img-responsive img-centered" src="{{$pub['photo_couverture']}}" alt="">
-                                                                    <p class="text-muted">
-                                                                        {{$pub['description']}}
-                                                                    </p>
-                                                                    <p>
-                                                                        {{$pub['nombre_numero']}} magazines par an <br>
-                                                                        {{$pub['prix_annuel']}}€ par an <br>
-                                                                        Debut abonnement : {{$article['date_debut']}}<br>
-                                                                        Fin abonnement : {{$article['date_fin']}}
-                                                                    </p>
+                                                                        <h2>{{$pub['titre']}}</h2>
+                                                                        <img width="210px" height="100px" class="img-responsive img-centered" src="{{$pub['photo_couverture']}}" alt="">
+                                                                        <p class="text-muted">
+                                                                            {{$pub['description']}}
+                                                                        </p>
+                                                                        <p>
+                                                                            {{$pub['nombre_numero']}} magazines par an <br>
+                                                                            {{$pub['prix_annuel']}}€ par an <br>
+                                                                            Debut abonnement : {{$article['date_debut']}}<br>
+                                                                            Fin abonnement : {{$article['date_fin']}}
+                                                                        </p>
 
-                                                                    <button type="submit" class="btn btn-warning glyphicon glyphicon-heart-empty"> Renouveler abonnement <br>(1 année)</button>
+                                                                        <button type="submit" class="btn btn-warning glyphicon glyphicon-heart-empty"> Renouveler abonnement <br>(1 année)</button>
 
-                                                                </form><br>
-                                                                <form class="form" action="{{url('/client/suspendreabonnement')}}" method="post">
-                                                                    {!! csrf_field() !!}
-                                                                    <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
-                                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle"> Suspendre abonnement</button>
-                                                                </form>
+                                                                    </form><br>
+                                                                    <form class="form" action="{{url('/client/suspendreabonnement')}}" method="post">
+                                                                        {!! csrf_field() !!}
+                                                                        <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
+                                                                        <button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle"> Suspendre abonnement</button>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
-                            @endforeach
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    @endif
+
+
 
 
 

@@ -35,14 +35,14 @@
 
                             <div class="form-group col-xs-6">
                                 <label>Parutions annuelles</label>
-                                <a href="" class="btn btn-primary">
+                                <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
                                     <i class="glyphicon glyphicon-list-alt"> {{$article['nombre_numero']}}</i>
                                 </a>
                             </div>
 
                             <div class="form-group col-xs-6">
                                 <label>Prix à l'année</label><br>
-                                <a href="" class="btn btn-primary">
+                                <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
                                     <i class="glyphicon glyphicon-euro"> {{$article['prix_annuel']}}</i>
                                 </a>
                             </div>

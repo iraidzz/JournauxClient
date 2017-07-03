@@ -91,7 +91,7 @@ class ClientController extends Controller
 
         curl_close($ch2);
 
-        return view('mesabonnements')->with('mesabonnements', $mesabonnements)->with('publications', $publications2);
+        return view('mesanciensabonnements')->with('mesabonnements', $mesabonnements)->with('publications', $publications2);
 
 
     }
@@ -189,7 +189,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 //dd($idAbonnement);
-        return redirect('/intro');
+        return redirect('/magazine/lister');
 
     }
     public function renouvelerabonnement()
@@ -210,9 +210,34 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 //dd($idAbonnement);
-        return redirect('/intro');
+        return redirect('/magazine/lister');
 
     }
+
+    public function relancerabonnementarrete()
+    {
+
+        $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
+        $date_fin=request()->only('date_fin')['date_fin'];
+
+
+
+        $ch = curl_init();
+        $url = "http://journaux.dev/api/client/relancerabonnementarrete";
+        // configuration des options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id_abonnement=$idAbonnement&date_fin=$date_fin");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
+        curl_close($ch);
+//dd($idAbonnement);
+        return redirect('/magazine/lister');
+
+    }
+
+
+
     public function sabonner()
     {
 
@@ -241,7 +266,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 
-        return redirect('/intro');
+        return redirect('/magazine/lister');
 
     }
 
