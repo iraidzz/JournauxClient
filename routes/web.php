@@ -44,12 +44,16 @@ Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 
 // Route "Mes abonnements en cours"
 Route::get('/client/mesabonnements/{id}', 'ClientController@mesabonnements');
+// Route "Mes anciens en cours"
+Route::get('/client/mesanciensabonnements/{id}', 'ClientController@mesanciensabonnements');
 // Route "S'abonner"
 Route::post('/client/sabonner', 'ClientController@sabonner');
-// Route "Renouveler Abonnement"
+// Route "Renouveler Abonnement" (On +1 année à la date de fin abonnement (attention , différent de "relancer abonnement arrêté"
 Route::post('/client/renouvelerabonnement', 'ClientController@renouvelerabonnement');
 // Route "Suspendre Abonnement"
 Route::post('/client/suspendreabonnement', 'ClientController@suspendreabonnement');
+// Route "Relancer Abonnement arrêté" (On remet à 1 l'etat , et on +1 année à la date Jour -j (aujourd'hui)
+Route::post('/client/relancerabonnementarrete', 'ClientController@relancerabonnementarrete');
 
 // Gestion du compte client
 Route::get('/client/moncompte/{id}', 'ClientController@MonCompte');

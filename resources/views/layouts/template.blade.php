@@ -36,8 +36,7 @@
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our Studio!</div>
-            <div class="intro-heading">It's Nice To Meet You</div>
+
         </div>
     </div>
 </header>
@@ -76,6 +75,9 @@
                         <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="/client/mesanciensabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes anciens abonnemnents</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>
                     </li>
 
@@ -102,25 +104,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <span class="copyright">Copyright &copy; Your Website 2016</span>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li><a href="#">Privacy Policy</a>
-                    </li>
-                    <li><a href="#">Terms of Use</a>
-                    </li>
-                </ul>
+                <span class="copyright">Copyright &copy; Esimed - 2017</span>
             </div>
         </div>
     </div>
