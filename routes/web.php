@@ -46,6 +46,10 @@ Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
 Route::get('/client/mesabonnements/{id}', 'ClientController@mesabonnements');
 // Route "S'abonner"
 Route::post('/client/sabonner', 'ClientController@sabonner');
+// Route "Renouveler Abonnement"
+Route::post('/client/renouvelerabonnement', 'ClientController@renouvelerabonnement');
+// Route "Suspendre Abonnement"
+Route::post('/client/suspendreabonnement', 'ClientController@suspendreabonnement');
 
 // Gestion du compte client
 Route::get('/client/moncompte/{id}', 'ClientController@MonCompte');

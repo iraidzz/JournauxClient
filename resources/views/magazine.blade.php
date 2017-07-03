@@ -80,6 +80,7 @@
                                         <input name="date_debut" type="hidden" value="<?=date("Y-m-d");?>">
                                         <input name="date_fin" type="hidden" value="<?=date('Y-m-d', strtotime('+1 year'));?>">
                                         <input name="date_pause" type="hidden" value="0000-00-00">
+                                        <input name="etat" type="hidden" value="1">
 
                                         <h2>{{$article['titre']}}</h2>
                                         <img width="210px" height="100px" class="img-responsive img-centered" src="{{$article['photo_couverture']}}" alt="">
@@ -88,7 +89,14 @@
                                             {{$article['prix_annuel']}}€ par an <br></p>
 
                                         <button type="submit" class="btn btn-primary">S'abonner</button>
-
+                                        {{--if(XXXXXXXX) // Il n'est pas abonné au magazine , on autorise le bouton--}}
+                                        {{--{--}}
+                                            {{--<button type="submit" class="btn btn-primary">S'abonner</button>--}}
+                                        {{--}--}}
+                                        {{--else // On voit qu'il est déjà abonné, on grise le bouton--}}
+                                        {{--{--}}
+                                            {{--<button type="submit" disabled class="btn btn-primary">Déjà abonné'</button>--}}
+                                        {{--}--}}
                                     </form>
                                 </div>
                             </div>

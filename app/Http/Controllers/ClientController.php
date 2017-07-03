@@ -118,7 +118,48 @@ class ClientController extends Controller
 
     }
 
+    public function suspendreabonnement()
+    {
 
+        // Etat 1 : en cour
+        // Etat 2 : en pause
+        // Etat 3 : suspendu (arrêté)
+        $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
+
+        $ch = curl_init();
+        $url = "http://journaux.dev/api/client/suspendreabonnement";
+        // configuration des options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id_abonnement=$idAbonnement&etat=3");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
+        curl_close($ch);
+//dd($idAbonnement);
+        return redirect('/intro');
+
+    }
+    public function renouvelerabonnement()
+    {
+
+        $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
+        $date_fin=request()->only('date_fin')['date_fin'];
+
+
+
+        $ch = curl_init();
+        $url = "http://journaux.dev/api/client/renouvelerabonnement";
+        // configuration des options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id_abonnement=$idAbonnement&date_fin=$date_fin");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
+        curl_close($ch);
+//dd($idAbonnement);
+        return redirect('/intro');
+
+    }
     public function sabonner()
     {
 
@@ -130,6 +171,8 @@ class ClientController extends Controller
         //$date_pause=request()->only('date_pause')['date_pause'];
         $date_pause=$date_fin;
 
+        $etat=request()->only('etat')['etat'];
+
         //dd($date_debut);
         //$date_debut="2019-12-02";
         //$date_fin="2020-12-02";
@@ -140,7 +183,7 @@ class ClientController extends Controller
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"client_id=$client_id&publication_id=$publication_id&date_debut=$date_debut&date_fin=$date_fin&date_pause=$date_pause");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"client_id=$client_id&publication_id=$publication_id&date_debut=$date_debut&date_fin=$date_fin&date_pause=$date_pause&etat=$etat");
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $content =curl_exec($ch);
         curl_close($ch);

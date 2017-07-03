@@ -84,24 +84,38 @@
                                                     <div class="row">
                                                         <div class="col-lg-8 col-lg-offset-2">
                                                             <div class="modal-body">
-                                                                <h2>{{$pub['titre']}}</h2>
-                                                                <img width="210px" height="100px" class="img-responsive img-centered" src="{{$pub['photo_couverture']}}" alt="">
-                                                                <p class="text-muted">
-                                                                    {{$pub['description']}}
-                                                                </p>
-                                                                <p>
-                                                                    {{$pub['nombre_numero']}} magazines par an <br>
-                                                                    {{$pub['prix_annuel']}}€ par an <br>
-                                                                    Debut abonnement : {{$article['date_debut']}}<br>
-                                                                    Fin abonnement : {{$article['date_fin']}}
-                                                                </p>
+                                                                <form class="form" action="{{url('/client/renouvelerabonnement')}}" method="post">
+                                                                    {!! csrf_field() !!}
+                                                                    <input name="id_abonnement" type="text" value="{{$article['id']}}">
+                                                                    <input name="date_fin" type="text" value="{{$article['date_fin']}}">
 
-                                                                <a href="" class="btn btn-primary">
-                                                                    <i class="glyphicon glyphicon-heart"> Renouveler abonnement <br>(1 année)</i>
-                                                                </a><br><br>
-                                                                <a href="" class="btn btn-danger">
-                                                                    <i class="glyphicon glyphicon-ban-circle"> Suspendre abonnement</i>
-                                                                </a>
+
+                                                                    <h2>{{$pub['titre']}}</h2>
+                                                                    <img width="210px" height="100px" class="img-responsive img-centered" src="{{$pub['photo_couverture']}}" alt="">
+                                                                    <p class="text-muted">
+                                                                        {{$pub['description']}}
+                                                                    </p>
+                                                                    <p>
+                                                                        {{$pub['nombre_numero']}} magazines par an <br>
+                                                                        {{$pub['prix_annuel']}}€ par an <br>
+                                                                        Debut abonnement : {{$article['date_debut']}}<br>
+                                                                        Fin abonnement : {{$article['date_fin']}}
+                                                                    </p>
+
+                                                                    <button type="submit" class="btn btn-primary glyphicon glyphicon-heart">Renouveler abonnement <br>(1 année)</button>
+                                                                    {{--<br><br>--}}
+                                                                    {{--<a href="/client/suspendreabonnement" class="btn btn-danger">--}}
+                                                                        {{--<i class="glyphicon glyphicon-ban-circle"> Suspendre abonnement</i>--}}
+                                                                    {{--</a>--}}
+                                                                </form>
+                                                                <form class="form" action="{{url('/client/suspendreabonnement')}}" method="post">
+                                                                    {!! csrf_field() !!}
+                                                                    <input name="id_abonnement" type="text" value="{{$article['id']}}">
+
+
+                                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle">Suspendre abonnement</button>
+
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
