@@ -86,8 +86,8 @@
                                                             <div class="modal-body">
                                                                 <form class="form" action="{{url('/client/renouvelerabonnement')}}" method="post">
                                                                     {!! csrf_field() !!}
-                                                                    <input name="id_abonnement" type="text" value="{{$article['id']}}">
-                                                                    <input name="date_fin" type="text" value="{{$article['date_fin']}}">
+                                                                    <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
+                                                                    <input name="date_fin" type="hidden" value="{{$article['date_fin']}}">
 
 
                                                                     <h2>{{$pub['titre']}}</h2>
@@ -102,19 +102,17 @@
                                                                         Fin abonnement : {{$article['date_fin']}}
                                                                     </p>
 
-                                                                    <button type="submit" class="btn btn-primary glyphicon glyphicon-heart">Renouveler abonnement <br>(1 année)</button>
+                                                                    <button type="submit" class="btn btn-warning glyphicon glyphicon-heart-empty"> Renouveler abonnement <br>(1 année)</button>
+
                                                                     {{--<br><br>--}}
                                                                     {{--<a href="/client/suspendreabonnement" class="btn btn-danger">--}}
                                                                         {{--<i class="glyphicon glyphicon-ban-circle"> Suspendre abonnement</i>--}}
                                                                     {{--</a>--}}
-                                                                </form>
+                                                                </form><br>
                                                                 <form class="form" action="{{url('/client/suspendreabonnement')}}" method="post">
                                                                     {!! csrf_field() !!}
-                                                                    <input name="id_abonnement" type="text" value="{{$article['id']}}">
-
-
-                                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle">Suspendre abonnement</button>
-
+                                                                    <input name="id_abonnement" type="hidden" value="{{$article['id']}}">
+                                                                    <button type="submit" class="btn btn-danger glyphicon glyphicon-ban-circle"> Suspendre abonnement</button>
                                                                 </form>
                                                             </div>
                                                         </div>
