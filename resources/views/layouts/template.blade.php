@@ -84,6 +84,9 @@
                     <li>
                         <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Panier</a>
+                    </li>
 
                     <li>
                         <a class="page-scroll" href="/client/logout">Déconnexion</a>

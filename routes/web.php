@@ -44,8 +44,6 @@ Route::get('/magazine/lister/{id}', 'MagazineController@DisplayMagazine');
 // Route recherche magazines
 Route::post('/magazine/filtrer', 'MagazineController@FiltreMagazine');
 
-
-
 // Route "Mes abonnements en cours"
 Route::get('/client/mesabonnements/{id}', 'ClientController@mesabonnements');
 // Route "Mes anciens en cours"
@@ -68,6 +66,9 @@ Route::post('/client/edit',"ClientController@EditCompte" );
 Route::get('/client/inscription', 'ClientController@inscription');
 //Validation enregistrement client (inscription)
 Route::post('/client/ajouter', 'ClientController@ajouter');
+
+/* Route pour la gestion des paiements et du panier */
+Route::get('/client/panier/{id}', 'PaiementController@DisplayPanier');
 
 Auth::routes();
 
