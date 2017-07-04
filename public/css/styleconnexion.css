@@ -43,7 +43,7 @@ body :-ms-input-placeholder {
   font-size: 40px;
   background: #000000;
   background: -webkit-linear-gradient(top left, #000000 0%, #ffffff 100%);
-  background: linear-gradient(to bottom right, #441c00 0%, #fffffb 100%);
+  background: linear-gradient(to bottom right, #000000 0%, #fffffb 100%);
   position: absolute;
   top: 0%;
   left: 0;

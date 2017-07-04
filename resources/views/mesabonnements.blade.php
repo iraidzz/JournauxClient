@@ -25,6 +25,7 @@
                     <div class="col-md-4 col-sm-6 portfolio-item">
                         <h4 style="font-family: 'Courier New'; font-size: 25px"><i>Vos abonnements en cours</i></h4>
                         @if($mesabonnements==null)  {{--Il n'y a riens à afficher--}}
+                        <hr>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 text-center">

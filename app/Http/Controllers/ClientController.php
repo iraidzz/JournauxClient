@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Cookie;
 class ClientController extends Controller
 {
     public function inscription()
@@ -39,6 +39,10 @@ class ClientController extends Controller
         $content = json_decode(curl_exec($ch), true);
         // fermeture de la session
         curl_close($ch);
+
+
+
+        return redirect('/login');
 
     }
     public function mesanciensabonnements($id)

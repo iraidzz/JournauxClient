@@ -12,13 +12,13 @@
             background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .6), rgba(246, 205, 85, .6), rgba(52, 54, 86, 100));
         }
     </style>
-    <center><h4 style="font-family: 'Courier New'; font-size: 25px"><i>Liste des magazines</i></h4></center>
+    <h4 style="font-family: 'Courier New'; font-size: 25px"><i><center>Liste des magazines</center></i></h4>
     <form role="form" action="{{action('MagazineController@FiltreMagazine')}}" method="post">
         {!! csrf_field() !!}
-        <div class="row">
             <div class="form-group col-lg-8">
                 <input placeholder="Rechercher un magazine" name="titre" type="text" class="form-control">
-                <input name="id" type="hidden" class="form-control" value="{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">
+                <input name="id" type="hidden" class="form-control"
+                       value="{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">
             </div>
             <div class="form-group col-lg-3">
                 <center>
@@ -26,10 +26,9 @@
                             href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"
                             class="btn btn-info">Retour</a></center>
             </div>
-        </div>
     </form>
     @foreach($publications as $article)
-        <hr class="hr-primary" style="margin-top: 0px;"/>
+        <hr class="hr-primary" style="margin-top: 0px;margin-left: 0px;"/>
 
         <!-- Portfolio Grid Section -->
         <div class="container">

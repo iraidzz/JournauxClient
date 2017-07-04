@@ -43,56 +43,57 @@
 
                                 <div class="form-group col-lg-6">
                                     <label>Nom</label>
-                                    <input name="name" type="text" class="form-control" value="{{  $patate['name'] }}">
+                                    <input name="name" type="text" class="form-control" required value="{{  $patate['name'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Prénom</label>
-                                    <input name="prenom" type="text" class="form-control" value="{{  $patate['prenom'] }}">
+                                    <input name="prenom" type="text" class="form-control" required value="{{  $patate['prenom'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Email</label>
-                                    <input name="email" type="email" class="form-control" value="{{  $patate['email'] }}">
+                                    <input name="email" type="email" class="form-control" required value="{{  $patate['email'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Password</label>
-                                    <input name="password" type="password" class="form-control" value="{{  $patate['password'] }}">
+                                    <input name="password" placeholder="Veuilliez re-taper votre mot de passe" type="text" class="form-control" required value="">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Numero de téléphone</label>
-                                    <input name="numero_telephone" type="text" class="form-control" value="{{  $patate['numero_telephone'] }}">
+                                    <input name="numero_telephone" type="text" class="form-control" required value="{{  $patate['numero_telephone'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Date de naissance</label>
-                                    <input name="date_naissance" type="text" class="form-control" value="{{  $patate['date_naissance'] }}">
+                                    <input name="date_naissance" type="text" class="form-control" required value="{{  $patate['date_naissance'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Lieu naissance</label>
-                                    <input name="lieu_naissance" type="text" class="form-control" value="{{  $patate['lieu_naissance'] }}">
+                                    <input name="lieu_naissance" type="text" class="form-control" required value="{{  $patate['lieu_naissance'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Adresse de domicile</label>
-                                    <input name="adresse_domicile" type="text" class="form-control" value="{{  $patate['adresse_domicile'] }}">
+                                    <input name="adresse_domicile" type="text" class="form-control" required value="{{  $patate['adresse_domicile'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Code postal</label>
-                                    <input name="postal_domicile" type="text" class="form-control" value="{{  $patate['postal_domicile'] }}">
+                                    <input name="postal_domicile" type="text" class="form-control" required value="{{  $patate['postal_domicile'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Ville</label>
-                                    <input name="ville_domicile" type="text" class="form-control" value="{{  $patate['ville_domicile'] }}">
+                                    <input name="ville_domicile" type="text" class="form-control" required value="{{  $patate['ville_domicile'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-12">
-                                    <center><button type="submit" class="btn btn-default">Modifier le client.</button></center>
+                                    <center><button type="submit" class="btn btn-warning">Modifier mes informations</button></center><br>
+                                    <a href="../../client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"  class="btn btn-info">Retour</a>
                                 </div>
 
                             </div>

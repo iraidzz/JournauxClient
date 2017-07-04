@@ -55,7 +55,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="/magazine/lister">Journaux en folie</a>
+            <a class="navbar-brand page-scroll" href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Journaux en folie</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +67,7 @@
 
                 @if ( \Illuminate\Support\Facades\Cookie::get('CookieName') == "")
                     <li><a href="{{ route('login') }}">Connexion</a></li>
-                    <li><a href="{{ route('register') }}">S'enregistrer</a></li>
+                    <li><a href="{{url('/client/inscription')}}">S'enregistrer</a></li>
                 @else
                     <li>
                         <a class="page-scroll text-primary" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>
