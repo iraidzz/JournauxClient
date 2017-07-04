@@ -33,16 +33,18 @@
 
 </head>
 
-<header>
-    <div class="container">
-        <div class="intro-text">
-qqzdqzdq
-            dzqdzqzd
-            qzdqz
-        </div>
-    </div>
-</header>
-
+{{--<header>--}}
+    {{--<div class="container">--}}
+        {{--<div class="intro-text">--}}
+{{--qqzdqzdq--}}
+            {{--dzqdzqzd--}}
+            {{--qzdqz--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</header>--}}
+<br>
+<br>
+<br>
 <body id="page-top" class="index">
 
 <!-- Navigation -->
@@ -71,7 +73,7 @@ qqzdqzdq
                         <a class="page-scroll text-primary" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/magazine/lister">Liste des magazines</a>
+                        <a class="page-scroll" href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Liste des magazines</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>

@@ -178,6 +178,7 @@ class ClientController extends Controller
         // Etat 2 : en pause
         // Etat 3 : suspendu (arrêté)
         $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
+        $client_id=request()->only('client_id')['client_id'];
 
         $ch = curl_init();
         $url = "http://journaux.dev/api/client/suspendreabonnement";
@@ -189,7 +190,8 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 //dd($idAbonnement);
-        return redirect('/magazine/lister');
+
+        return redirect('/client/mesabonnements/'.$client_id);
 
     }
     public function renouvelerabonnement()
@@ -197,6 +199,7 @@ class ClientController extends Controller
 
         $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
         $date_fin=request()->only('date_fin')['date_fin'];
+        $client_id=request()->only('client_id')['client_id'];
 
 
 
@@ -210,7 +213,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 //dd($idAbonnement);
-        return redirect('/magazine/lister');
+        return redirect('/client/mesabonnements/'.$client_id);
 
     }
 
@@ -219,7 +222,7 @@ class ClientController extends Controller
 
         $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
         $date_fin=request()->only('date_fin')['date_fin'];
-
+        $client_id=request()->only('client_id')['client_id'];
 
 
         $ch = curl_init();
@@ -232,7 +235,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 //dd($idAbonnement);
-        return redirect('/magazine/lister');
+        return redirect('/client/mesabonnements/'.$client_id);
 
     }
 
@@ -266,7 +269,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 
-        return redirect('/magazine/lister');
+        return redirect('/client/mesabonnements/'.$client_id);
 
     }
 

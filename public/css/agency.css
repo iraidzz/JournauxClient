@@ -3,6 +3,11 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+hloick {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Algerian, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;

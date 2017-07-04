@@ -40,7 +40,7 @@ Route::post('/client/authentifier', 'UserController@Authentifier');
 Route::get('/client/logout', 'UserController@Logout');
 
 // Route affichage liste comlète des magazines
-Route::get('/magazine/lister', 'MagazineController@DisplayMagazine');
+Route::get('/magazine/lister/{id}', 'MagazineController@DisplayMagazine');
 // Route recherche magazines
 Route::post('/magazine/filtrer', 'MagazineController@FiltreMagazine');
 

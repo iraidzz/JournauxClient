@@ -17,8 +17,39 @@ use Illuminate\Support\Facades\Input;
 class MagazineController
 {
 
-    public function DisplayMagazine()
+    public function DisplayMagazine($id)
     {
+        $url2= "http://journaux.dev/api/client/mesabonnements/$id";
+
+        $options2 = array(
+            CURLOPT_RETURNTRANSFER => true,   // return web page
+            CURLOPT_HEADER         => false,  // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+            CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+            CURLOPT_ENCODING       => "",     // handle compressed
+            CURLOPT_USERAGENT      => "", // name of client
+            CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+            CURLOPT_TIMEOUT        => 120,    // time-out on response
+        );
+
+        $ch2 = curl_init($url2);
+        curl_setopt_array($ch2, $options2);
+
+        $mesabonnements2 = json_decode(curl_exec($ch2), true)['result'];
+
+
+        foreach($mesabonnements2 as $UserData2)
+        {
+            $idPublication2[] = $UserData2['publication_id'];
+        }
+        curl_close($ch2);
+
+
+
+
+
+
 
         $url= "http://journaux.dev/api/magazine/lister";
         //$url= "http://10.0.10.110/api/magazine/lister";
@@ -42,7 +73,7 @@ class MagazineController
 
         curl_close($ch);
 
-        return view('magazine')->with('publications', $publications);
+        return view('magazine')->with('publications', $publications)->with('mesabonnements', $mesabonnements2);
     }
 
 
@@ -50,8 +81,37 @@ class MagazineController
     {
         $post = $request->all();
         $laValeurRecherchee = $post['titre'];
+        $id = $post['id'];
 
-//        dd($laValeurRecherchee);
+//        dd($id);
+
+
+        $url2= "http://journaux.dev/api/client/mesabonnements/$id";
+
+        $options2 = array(
+            CURLOPT_RETURNTRANSFER => true,   // return web page
+            CURLOPT_HEADER         => false,  // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+            CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+            CURLOPT_ENCODING       => "",     // handle compressed
+            CURLOPT_USERAGENT      => "", // name of client
+            CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+            CURLOPT_TIMEOUT        => 120,    // time-out on response
+        );
+
+        $ch2 = curl_init($url2);
+        curl_setopt_array($ch2, $options2);
+
+        $mesabonnements2 = json_decode(curl_exec($ch2), true)['result'];
+
+
+        foreach($mesabonnements2 as $UserData2)
+        {
+            $idPublication2[] = $UserData2['publication_id'];
+        }
+        curl_close($ch2);
+
 
 
         $url= "http://journaux.dev/api/magazine/filtrer";
@@ -77,7 +137,7 @@ class MagazineController
 
         curl_close($ch);
 
-        return view('magazine')->with('publications', $publications);
+        return view('magazine')->with('publications', $publications)->with('mesabonnements', $mesabonnements2);
 
 
     }
