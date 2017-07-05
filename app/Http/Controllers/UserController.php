@@ -36,14 +36,23 @@ class UserController extends Controller
         // fermeture de la session
         curl_close($ch);
 
-        foreach($content as $UserData)
+        if($content=='ErreurConnexion')
         {
-            $cookie = Cookie::make('CookieName', $UserData['name']);
-            $cookieid = Cookie::make('CookieId', $UserData['id']);
+            return redirect('/login');
+        }
+        else
+        {
+            foreach($content as $UserData)
+            {
+                $cookie = Cookie::make('CookieName', $UserData['name']);
+                $cookieid = Cookie::make('CookieId', $UserData['id']);
 
+            }
+
+            return redirect('/client/mesabonnements/'.$UserData['id'])->withCookie($cookie)->withCookie(($cookieid));
         }
 
-        return redirect('/client/mesabonnements/'.$UserData['id'])->withCookie($cookie)->withCookie(($cookieid));
+
 
     }
     public function Logout()

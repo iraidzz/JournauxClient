@@ -58,7 +58,7 @@
 
                                 <div class="form-group col-lg-6">
                                     <label>Password</label>
-                                    <input name="password" placeholder="Veuilliez re-taper votre mot de passe" type="text" class="form-control" required value="">
+                                    <input name="password" placeholder="Veuilliez re-taper votre mot de passe" type="password" class="form-control" required value="">
                                 </div>
 
                                 <div class="form-group col-lg-6">
