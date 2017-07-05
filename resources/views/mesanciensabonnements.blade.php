@@ -64,11 +64,11 @@
                                                         <div class="form-group col-xs-7">
                                                             <BR><label>Nom</label>
                                                             <input type="text" class="hr-input text-jaunefonce"
-                                                                   style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;"
+                                                                   style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;width: 164px;"
                                                                    disabled value="{{$pub['titre']}}">
                                                             <label>Fin abonnement</label><br>
                                                             <input type="text" class="hr-input text-jaunefonce"
-                                                                   style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;"
+                                                                   style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;width: 164px;"
                                                                    disabled value="{{$article['date_fin']}}">
                                                         </div>
                                                     </div>
