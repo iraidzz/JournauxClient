@@ -42,10 +42,7 @@ class PaiementController
 
     public function DisplayPaiement($id, $prix)
     {
-
         return view('paiement')->with('id', $id)->with('prix', $prix);
-
-
     }
 
 

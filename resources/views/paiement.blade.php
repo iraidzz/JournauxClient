@@ -29,7 +29,6 @@
                         <input name="cardmonth" type="number" class="form-control" value="">
                     </div>
 
-
                     <div class="form-group col-lg-6">
                         <label>cardyear (année d'expiration de la carte (entier))</label>
                         <input name="cardyear" type="number" class="form-control" value="">
