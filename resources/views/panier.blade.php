@@ -8,12 +8,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><b>PANIER</b></div>
                     <div class="panel-body">
+
                         <table class="table">
                             <thead>
                             <tr>
                                 <th>Titre</th>
-                                <th>Date debut abonnement</th>
                                 <th>Prix</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -21,16 +22,24 @@
                             @foreach ($panier as $patate)
                                 <tr>
                                     <td>{{  $patate['publication']['titre'] }}</td>
-                                    <td>{{  $patate['date_debut'] }}</td>
-                                    <td>{{  $patate['prix'] }}</td>
+                                    <td>{{  $patate['prix'] }}€</td>
+                                    <td><a class="btn btn-block btn-warning" href="/client/paiement/{{ $patate['id'] }}/{{  $patate['prix'] }}"> <b>Payer</b></a></td>
                                     <?php $sum+=$patate['prix'] ?>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
 
+
+                        <?php
+                        if($sum == 0)
+                            {
+                                Echo "Pas de paiement en attente";
+                            }
+                        ?>
+
                         <div class="col-lg-1"><btn class="btn btn-block disabled"> <b>Vous devez payer : <?php echo $sum ?>€</b></btn></div>
-                        <div class="col-lg-1"><a class="btn btn-block btn-warning" href="/paiement".$sum> <b>Payer</b></a></div>
+                        <div class="col-lg-1"><a class="btn btn-block btn-warning" href="/client/paiement/{{$sum}}"> <b>Payer la totalité</b></a></div>
 
                     </div>
                 </div>

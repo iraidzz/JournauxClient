@@ -69,6 +69,8 @@ Route::post('/client/ajouter', 'ClientController@ajouter');
 
 /* Route pour la gestion des paiements et du panier */
 Route::get('/client/panier/{id}', 'PaiementController@DisplayPanier');
+Route::get('/client/paiement/{id}/{prix}', 'PaiementController@DisplayPaiement');
+Route::post('/client/paiementfinal', 'PaiementController@Paiement');
 
 Auth::routes();
 

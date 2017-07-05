@@ -40,4 +40,46 @@ class PaiementController
         return view('panier')->with('panier', $panier);
     }
 
+    public function DisplayPaiement($id, $prix)
+    {
+
+        return view('paiement')->with('id', $id)->with('prix', $prix);
+
+
+    }
+
+
+    public function Paiement()
+    {
+
+        $id=request()->only('id')['id'];
+        $name=request()->only('name')['name'];
+        $email=request()->only('email')['email'];
+        $password=request()->only('password')['password'];
+        $prenom=request()->only('prenom')['prenom'];
+        $civilite=request()->only('civilite')['civilite'];
+        $numero_telephone=request()->only('numero_telephone')['numero_telephone'];
+        $date_naissance=request()->only('date_naissance')['date_naissance'];
+        $lieu_naissance=request()->only('lieu_naissance')['lieu_naissance'];
+        $adresse_domicile=request()->only('adresse_domicile')['adresse_domicile'];
+        $postal_domicile=request()->only('postal_domicile')['postal_domicile'];
+        $ville_domicile=request()->only('ville_domicile')['ville_domicile'];
+
+        $ch = curl_init();
+        $url = "http://journaux.dev/api/client/paiementfinal";
+        // configuration des options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id=$id&name=$name&email=$email&password=$password&prenom=$prenom&civilite=$civilite&numero_telephone=$numero_telephone&date_naissance=$date_naissance&lieu_naissance=$lieu_naissance&adresse_domicile=$adresse_domicile&postal_domicile=$postal_domicile&ville_domicile=$ville_domicile");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        $content =curl_exec($ch);
+
+        curl_close($ch);
+
+        return redirect('/client/moncompte/'.$id);
+
+
+    }
+
+
 }
