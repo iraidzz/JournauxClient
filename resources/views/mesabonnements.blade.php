@@ -125,6 +125,12 @@
                                                                            value="{{$article['date_fin']}}">
                                                                     <input name="client_id" type="hidden"
                                                                            value="{{$article['client_id']}}">
+                                                                    <input name="paye" type="hidden"
+                                                                           value="{{$article['paye']}}">
+                                                                    <input name="prix_magazine_annuel" type="hidden"
+                                                                           value="{{$pub['prix_annuel']}}">
+                                                                    <input name="cout_abonnement" type="hidden"
+                                                                           value="{{$article['prix']}}">
 
 
                                                                     <h2>{{$pub['titre']}}</h2>

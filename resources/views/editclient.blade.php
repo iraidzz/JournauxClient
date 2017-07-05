@@ -68,7 +68,7 @@
 
                                 <div class="form-group col-lg-6">
                                     <label>Date de naissance</label>
-                                    <input name="date_naissance" type="text" class="form-control" required value="{{  $patate['date_naissance'] }}">
+                                    <input name="date_naissance" type="date" class="form-control" required value="{{  $patate['date_naissance'] }}">
                                 </div>
 
                                 <div class="form-group col-lg-6">

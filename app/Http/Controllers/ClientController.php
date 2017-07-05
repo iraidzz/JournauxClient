@@ -204,6 +204,14 @@ class ClientController extends Controller
         $idAbonnement=request()->only('id_abonnement')['id_abonnement'];
         $date_fin=request()->only('date_fin')['date_fin'];
         $client_id=request()->only('client_id')['client_id'];
+        $paye=request()->only('paye')['paye']; // Si = 0 -> Pas encore réglé par le client , Si = 1 -> Réglé par le client
+        /* Prix abonnement annuel */
+        $prix_magazine_annuel=request()->only('prix_magazine_annuel')['prix_magazine_annuel'];
+        /* Cout actuel de l'abonnement du client */
+        $cout_abonnement=request()->only('cout_abonnement')['cout_abonnement'];
+
+
+//        dd($paye);
 
 
 
@@ -212,7 +220,7 @@ class ClientController extends Controller
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"id_abonnement=$idAbonnement&date_fin=$date_fin");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"id_abonnement=$idAbonnement&date_fin=$date_fin&paye=$paye&prixmagazineannuel=$prix_magazine_annuel&coutabonnement=$cout_abonnement");
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $content =curl_exec($ch);
         curl_close($ch);
@@ -250,6 +258,7 @@ class ClientController extends Controller
 
         $client_id=request()->only('client_id')['client_id'];
         $publication_id=request()->only('publication_id')['publication_id'];
+        $prix=request()->only('prix')['prix'];
         // quand on passe par les données date envoye erreur sur le format date alors qu'en dur sa passe
         $date_debut=request()->only('date_debut')['date_debut'];
         $date_fin=request()->only('date_fin')['date_fin'];
@@ -268,7 +277,7 @@ class ClientController extends Controller
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"client_id=$client_id&publication_id=$publication_id&date_debut=$date_debut&date_fin=$date_fin&date_pause=$date_pause&etat=$etat");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"client_id=$client_id&publication_id=$publication_id&date_debut=$date_debut&date_fin=$date_fin&date_pause=$date_pause&etat=$etat&prix=$prix");
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $content =curl_exec($ch);
         curl_close($ch);

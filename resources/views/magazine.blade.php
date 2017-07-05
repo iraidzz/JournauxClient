@@ -95,6 +95,7 @@
                                         <input name="client_id" type="hidden"
                                                value="{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">
                                         <input name="publication_id" type="hidden" value="{{$article['id']}}">
+                                        <input name="prix" type="hidden" value="{{$article['prix_annuel']}}">
                                         <input name="date_debut" type="hidden" value="<?=date("Y-m-d");?>">
                                         <input name="date_fin" type="hidden"
                                                value="<?=date('Y-m-d', strtotime('+1 year'));?>">
