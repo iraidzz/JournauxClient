@@ -50,7 +50,7 @@
                             @endif
 
                             <div class="form-group col-xs-6">
-                                <label>Parutions annuelles</label>
+                                <label>Parutions</label>
                                 <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
                                     <i class="glyphicon glyphicon-list-alt"> {{$article['nombre_numero']}}</i>
                                 </a>
