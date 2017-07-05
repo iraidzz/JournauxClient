@@ -3,7 +3,7 @@
 
         <div class="col-md-offset-3 col-md-6 text-center">
 
-            <form>
+            <form role="form" action="{{url('/client/paiementfinal')}}" method="post">
                 {!! csrf_field() !!}
                 <div class="row">
 
@@ -16,7 +16,7 @@
 
                     <div class="form-group col-lg-6">
                         <label>cid (identifiant paiment coté entreprise (texte))</label>
-                        <input name="cid" type="text" class="form-control" value="JournauxEnfolie">
+                        <input name="cid" disabled type="text" class="form-control" value="JournauxEnfolie">
                     </div>
 
                     <div class="form-group col-lg-6">
@@ -39,9 +39,10 @@
                         <label>amount (montant (réel,séparateur:.)</label>
                         <input name="amount" disabled type="number" class="form-control" value="{{  $prix }}">
                     </div>
-
-                    <div class="col-lg-1"><a class="btn btn-warning" href="/client/paiementfinal"> <b><u>Finaliser le Payement</u></b></a></div>
-
+                    <div class="form-group col-lg-12">
+                        <center><button type="submit" class="btn btn-warning">Finaliser le payement</button></center><br>
+                        {{--<a class="btn btn-warning" href="/client/paiementfinal"> <b><u>Finaliser le Payement</u></b></a>--}}
+                    </div>
                 </div>
             </form>
         </div>
