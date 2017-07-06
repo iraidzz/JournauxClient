@@ -48,6 +48,7 @@ class PaiementController
 
     public function Paiement()
     {
+        $clientid = request()->only('clientid')['clientid'];
         $uuid = request()->only('uuid')['uuid'];
         $cid = request()->only('cid')['cid'];
         $cardnumber = request()->only('cardnumber')['cardnumber'];
@@ -55,17 +56,19 @@ class PaiementController
         $cardyear = request()->only('cardyear')['cardyear'];
         $amount = request()->only('amount')['amount'];
 
-
         $ch = curl_init();
         $url = "http://journaux.dev/api/client/paiementfinal";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "clientid=$clientid&&uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $content = curl_exec($ch);
+//        $content = curl_exec($ch);
+        $panier = json_decode(curl_exec($ch), true)['result'];
 
         curl_close($ch);
+
+        return view('panier')->with('panier', $panier);
 
     }
 
