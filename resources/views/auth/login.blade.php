@@ -55,6 +55,11 @@
                                 </button>
                             </div>
                         </div>
+                        @if(Session::has('error'))
+                            <div class="alert alert-danger">
+                                <center> Connexion impossible. <br>Adresse email ou mot de passe incorrect.</center>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

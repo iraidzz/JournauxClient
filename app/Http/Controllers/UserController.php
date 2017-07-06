@@ -38,7 +38,7 @@ class UserController extends Controller
 
         if($content=='ErreurConnexion')
         {
-            return redirect('/login');
+            return redirect('/login')->with('error', 'Identifiants incorrects');
         }
         else
         {
