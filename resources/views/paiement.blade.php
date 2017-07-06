@@ -27,17 +27,17 @@
 
                     <div class="form-group col-lg-6">
                         <label>cardnumber (numero carte bancaire (texte))</label>
-                        <input name="cardnumber" class="form-control" value="">
+                        <input type="text" maxlength="10" name="cardnumber" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">
                         <label>cardmonth (mois d'expiration de la carte (entier))</label>
-                        <input name="cardmonth" class="form-control" value="">
+                        <input type="text" maxlength="2" name="cardmonth" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">
                         <label>cardyear (année d'expiration de la carte (entier))</label>
-                        <input name="cardyear" class="form-control" value="">
+                        <input type="text" maxlength="4" name="cardyear" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">

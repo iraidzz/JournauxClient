@@ -168,7 +168,16 @@
                                                                         <br>
                                                                         Fin abonnement : {{$article['date_fin']}}
                                                                     </p>
-
+                                                                    @if($article['paye']==0)
+                                                                        <a href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}" disabled="" class="btn btn-success glyphicon glyphicon-euro">
+                                                                            A régler
+                                                                        </a>
+                                                                    @else
+                                                                        <a href="" class="btn btn-success glyphicon glyphicon-euro disabled">
+                                                                            Déjà réglé
+                                                                        </a>
+                                                                    @endif
+                                                                    <br><br>
                                                                     <button type="submit"
                                                                             class="btn btn-warning glyphicon glyphicon-heart-empty">
                                                                         Renouveler abonnement <br>(1 année)

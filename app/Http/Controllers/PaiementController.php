@@ -68,7 +68,8 @@ class PaiementController
 
         curl_close($ch);
 
-        return view('panier')->with('panier', $panier);
+//        return view('panier')->with('panier', $panier);
+        return redirect('/client/panier/'.$clientid);
 
     }
 

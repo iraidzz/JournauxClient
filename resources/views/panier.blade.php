@@ -19,14 +19,16 @@
                             </thead>
                             <tbody>
                             <?php $sum=0 ?>
-                            @foreach ($panier as $patate)
-                                <tr>
-                                    <td>{{  $patate['publication']['titre'] }}</td>
-                                    <td>{{  $patate['prix'] }}€</td>
-                                    <td><a class="btn btn-block btn-warning" href="/client/paiement/{{ $patate['id'] }}/{{  $patate['prix'] }}"> <b>Payer</b></a></td>
-                                    <?php $sum+=$patate['prix'] ?>
-                                </tr>
-                            @endforeach
+                            @if(isset($panier))
+                                @foreach ($panier as $patate)
+                                    <tr>
+                                        <td>{{  $patate['publication']['titre'] }}</td>
+                                        <td>{{  $patate['prix'] }}€</td>
+                                        <td><a class="btn btn-block btn-warning" href="/client/paiement/{{ $patate['id'] }}/{{  $patate['prix'] }}"> <b>Payer</b></a></td>
+                                        <?php $sum+=$patate['prix'] ?>
+                                    </tr>
+                                @endforeach
+                            @endif
                             </tbody>
                         </table>
 
