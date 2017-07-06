@@ -7,7 +7,6 @@
                 {!! csrf_field() !!}
                 <div class="row">
 
-                    <input name="id" disabled type="text" class="form-control" value="{{ $id }}">
 
                     <div class="form-group col-lg-6">
                         <label>UUID (identifiant unique de l'entreprise)</label>
@@ -15,8 +14,8 @@
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>cid (identifiant paiment coté entreprise (texte))</label>
-                        <input name="cid" disabled type="text" class="form-control" value="JournauxEnfolie">
+                        <label>cid (identifiant paiment coté entreprise (ID de l'article))</label>
+                        <input name="cid" disabled type="text" class="form-control" value="{{ $id }}">
                     </div>
 
                     <div class="form-group col-lg-6">

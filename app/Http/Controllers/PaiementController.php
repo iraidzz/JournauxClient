@@ -48,7 +48,6 @@ class PaiementController
 
     public function Paiement()
     {
-        $id = request()->only('id')['id'];
         $uuid = request()->only('uuid')['uuid'];
         $cid = request()->only('cid')['cid'];
         $cardnumber = request()->only('cardnumber')['cardnumber'];
@@ -62,7 +61,7 @@ class PaiementController
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "id=$id&uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $content = curl_exec($ch);
 
