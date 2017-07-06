@@ -42,7 +42,7 @@ class ClientController extends Controller
 
 
 
-        return redirect('/login');
+        return redirect('/login')->with('valid', 'Inscription ok');;
 
     }
     public function mesanciensabonnements($id)
@@ -282,6 +282,7 @@ class ClientController extends Controller
         $content =curl_exec($ch);
         curl_close($ch);
 
+//        session()->set('success','Abonnement ajouté.');
         return redirect('/client/mesabonnements/'.$client_id);
 
     }

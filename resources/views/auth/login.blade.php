@@ -60,6 +60,12 @@
                                 <center> Connexion impossible. <br>Adresse email ou mot de passe incorrect.</center>
                             </div>
                         @endif
+
+                        @if(Session::has('valid'))
+                            <div class="alert alert-sruccess">
+                                <center> Inscription validée.<br>Veuilliez vous connecter.</center>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>
