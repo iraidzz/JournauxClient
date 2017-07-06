@@ -40,7 +40,6 @@
                     </div>
                     <div class="form-group col-lg-12">
                         <center><button type="submit" class="btn btn-warning">Finaliser le payement</button></center><br>
-                        {{--<a class="btn btn-warning" href="/client/paiementfinal"> <b><u>Finaliser le Payement</u></b></a>--}}
                     </div>
                 </div>
             </form>

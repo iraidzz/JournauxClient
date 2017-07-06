@@ -68,8 +68,6 @@ class PaiementController
 
         curl_close($ch);
 
-        dd($content);
-
     }
 
 
