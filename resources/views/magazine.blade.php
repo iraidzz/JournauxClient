@@ -102,12 +102,21 @@
                                         <input name="date_pause" type="hidden" value="0000-00-00">
                                         <input name="etat" type="hidden" value="1">
 
-                                        <h2>{{$article['titre']}}</h2>
+                                        <h3><u>{{$article['titre']}}</u></h3>
                                         <img width="210px" height="100px" class="img-responsive img-centered"
                                              src="{{$article['photo_couverture']}}" alt="">
                                         <p class="text-muted"> {{$article['description']}} </p>
-                                        <p>{{$article['nombre_numero']}} magazines par an <br>
-                                            {{$article['prix_annuel']}}€ par an <br></p>
+                                        <p>
+                                        <div class="form-group col-xs-6">
+                                            <b>Magazines /an</b> :<br>
+                                            <input type="text" value="{{$article['nombre_numero']}}" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                        </div>
+
+                                        <div class="form-group col-xs-6">
+                                            <b>Prix /an</b> :<br>
+                                            <input type="text" value="{{$article['prix_annuel']}}€" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                        </div>
+                                        </p>
 
                                         {{--<button type="submit" class="btn btn-primary">S'abonner</button>--}}
 
