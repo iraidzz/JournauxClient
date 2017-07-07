@@ -41,8 +41,17 @@
                         ?>
 
                         <div class="col-lg-1"><btn class="btn btn-block disabled"> <b>Vous devez payer : <?php echo $sum ?>€</b></btn></div>
-                        <div class="col-lg-1"><a class="btn btn-block btn-warning" href="/client/paiement/{{$sum}}"> <b>Payer la totalité</b></a></div>
-
+                        {{--<div class="col-lg-1"><a class="btn btn-block btn-warning" href="#"> <b>Payer la totalité</b></a></div>--}}
+                        @if(Session::has('errorPaiement'))
+                            <div class="alert alert-danger">
+                                <center> Erreur de paiement, merci de vérifier vos informations bancaire et veuilliez réessayer.</center>
+                            </div>
+                        @endif
+                        @if(Session::has('okPaiement'))
+                            <div class="alert alert-success">
+                                <center> Paiement validé. Merci pour votre achat.</center>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

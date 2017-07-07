@@ -14,39 +14,39 @@
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>UUID (identifiant unique de l'entreprise)</label>
+                        <label>Identifiant unique de l'entreprise</label>
                         <input name="uuid" type="hidden" class="form-control" value="97a53bb0-c73b-06c4-df5a-136dd6f8deec">
                         <input name="uuid_affichage" disabled class="form-control" value="97a53bb0-c73b-06c4-df5a-136dd6f8deec">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>cid (identifiant paiment coté entreprise (ID de l'article))</label>
+                        <label>ID de l'article</label>
                         <input name="cid" type="hidden" class="form-control" value="{{ $id }}">
                         <input name="cid_affichage" disabled class="form-control" value="{{ $id }}">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>cardnumber (numero carte bancaire (texte))</label>
+                        <label>Numero carte bancaire</label>
                         <input type="text" maxlength="10" name="cardnumber" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>cardmonth (mois d'expiration de la carte (entier))</label>
+                        <label>Mois d'expiration de la carte (MM)</label>
                         <input type="text" maxlength="2" name="cardmonth" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>cardyear (année d'expiration de la carte (entier))</label>
+                        <label>Année d'expiration de la carte (YYYY)</label>
                         <input type="text" maxlength="4" name="cardyear" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label>amount (montant (réel,séparateur:.)</label>
+                        <label>Montant à payer</label>
                         <input name="amount" type="hidden" class="form-control" value="{{  $prix }}">
                         <input name="amount_affichage" disabled class="form-control" value="{{  $prix }}">
                     </div>
                     <div class="form-group col-lg-12">
-                        <center><button type="submit" class="btn btn-warning">Finaliser le payement</button></center><br>
+                        <center><button type="submit" class="btn btn-warning">Finaliser le paiement</button></center><br>
                     </div>
                 </div>
             </form>

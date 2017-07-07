@@ -64,12 +64,19 @@ class PaiementController
         curl_setopt($ch, CURLOPT_POSTFIELDS, "clientid=$clientid&&uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //        $content = curl_exec($ch);
-        $panier = json_decode(curl_exec($ch), true)['result'];
+        $content = json_decode(curl_exec($ch), true)['result'];
 
         curl_close($ch);
 
-//        return view('panier')->with('panier', $panier);
-        return redirect('/client/panier/'.$clientid);
+        if($content=='ErreurPaiement')
+        {
+            return redirect('/client/panier/'.$clientid)->with('errorPaiement', 'Paiement Incorrect');
+        }
+        else {
+            return redirect('/client/panier/'.$clientid)->with('okPaiement', 'Paiement Ok');
+
+
+        }
 
     }
 
