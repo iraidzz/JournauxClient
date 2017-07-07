@@ -50,9 +50,12 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Je me connecte !
-                                </button>
+                                <center>
+                                    <button type="submit" class="btn btn-primary">
+                                        Je me connecte !
+                                    </button>
+                                </center>
+
                             </div>
                         </div>
                         @if(Session::has('error'))
