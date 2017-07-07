@@ -22,21 +22,21 @@
     {{--<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">--}}
     {{--<script>--}}
 
-        {{--@if(Session::has('success'))--}}
-{{--toastr.success("{{ Session::get('success') }}");--}}
-        {{--@endif--}}
+    {{--@if(Session::has('success'))--}}
+    {{--toastr.success("{{ Session::get('success') }}");--}}
+    {{--@endif--}}
 
-        {{--@if(Session::has('info'))--}}
-{{--toastr.info("{{ Session::get('info') }}");--}}
-        {{--@endif--}}
+    {{--@if(Session::has('info'))--}}
+    {{--toastr.info("{{ Session::get('info') }}");--}}
+    {{--@endif--}}
 
-        {{--@if(Session::has('warning'))--}}
-{{--toastr.warning("{{ Session::get('warning') }}");--}}
-        {{--@endif--}}
+    {{--@if(Session::has('warning'))--}}
+    {{--toastr.warning("{{ Session::get('warning') }}");--}}
+    {{--@endif--}}
 
-        {{--@if(Session::has('error'))--}}
-{{--toastr.error("{{ Session::get('error') }}");--}}
-        {{--@endif--}}
+    {{--@if(Session::has('error'))--}}
+    {{--toastr.error("{{ Session::get('error') }}");--}}
+    {{--@endif--}}
 
     {{--</script>--}}
     <div class="container">
@@ -92,7 +92,7 @@
                                                         <label>Fin abonnement</label><br>
                                                         <input type="text" class="hr-input text-jaunefonce"
                                                                style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;width: 164px;"
-                                                               disabled value="{{$article['date_fin']}}">
+                                                               disabled value="<?=date_format(date_create($article['date_fin']), 'd/m/Y');?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-xs-12">
@@ -154,7 +154,7 @@
                                                                            value="{{$article['prix']}}">
 
 
-                                                                    <h2>{{$pub['titre']}}</h2>
+                                                                    <h3><u>{{$pub['titre']}}</u></h3>
                                                                     <img width="210px" height="100px"
                                                                          class="img-responsive img-centered"
                                                                          src="{{$pub['photo_couverture']}}" alt="">
@@ -162,24 +162,43 @@
                                                                         {{$pub['description']}}
                                                                     </p>
                                                                     <p>
-                                                                        {{$pub['nombre_numero']}} magazines par an <br>
-                                                                        {{$pub['prix_annuel']}}€ par an <br>
-                                                                        Debut abonnement : {{$article['date_debut']}}
-                                                                        <br>
-                                                                        Fin abonnement : {{$article['date_fin']}}
-                                                                    </p>
-                                                                    @if($article['paye']==0)
-                                                                        <a href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}" disabled="" class="btn btn-success glyphicon glyphicon-euro">
-                                                                            A régler
-                                                                        </a>
-                                                                    @else
-                                                                        <a href="" class="btn btn-success glyphicon glyphicon-euro disabled">
-                                                                            Déjà réglé
-                                                                        </a>
-                                                                    @endif
+                                                                    <div class="form-group col-xs-6">
+                                                                        <b>Magazines /an</b> :<br>
+                                                                        <input type="text" value="{{$pub['nombre_numero']}}" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                                                    </div>
+
+                                                                    <div class="form-group col-xs-6">
+                                                                        <b>Prix /an</b> :<br>
+                                                                        <input type="text" value="{{$pub['prix_annuel']}}€" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                                                    </div>
+
+
+                                                                    <div class="form-group col-xs-6">
+                                                                        <b>Debut abo. </b> :<br>
+                                                                        <input type="text" value="<?=date_format(date_create($article['date_debut']), 'd/m/Y');?>" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 100px;margin-top: 8px;">
+                                                                    </div>
+
+                                                                    <div class="form-group col-xs-6">
+                                                                        <b>Fin abo.</b> :<br>
+                                                                        <input type="text" value="<?=date_format(date_create($article['date_fin']), 'd/m/Y');?>" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 100px;margin-top: 8px;">
+                                                                    </div>
+                                                                    </p><br>
+
+                                                                    <div class="form-group col-xs-12">
+                                                                        @if($article['paye']==0)
+                                                                            <a href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}" class="btn btn-warning glyphicon glyphicon-euro">
+                                                                                A régler
+                                                                            </a>
+                                                                        @else
+                                                                            <a href="" class="btn btn-warning glyphicon glyphicon-euro disabled">
+                                                                                Déjà réglé
+                                                                            </a>
+                                                                        @endif
+                                                                    </div>
+
                                                                     <br><br>
                                                                     <button type="submit"
-                                                                            class="btn btn-warning glyphicon glyphicon-heart-empty">
+                                                                            class="btn btn-success glyphicon glyphicon-heart-empty">
                                                                         Renouveler abonnement <br>(1 année)
                                                                     </button>
 

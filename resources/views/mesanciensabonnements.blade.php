@@ -69,7 +69,7 @@
                                                             <label>Fin abonnement</label><br>
                                                             <input type="text" class="hr-input text-jaunefonce"
                                                                    style="text-align: center; -webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;width: 164px;"
-                                                                   disabled value="{{$article['date_fin']}}">
+                                                                   disabled value="<?=date_format(date_create($article['date_fin']), 'd/m/Y');?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-xs-12">
@@ -125,7 +125,7 @@
                                                                                value="<?=date('Y-m-d', strtotime('+1 year'));?>">
 
 
-                                                                        <h2>{{$pub['titre']}}</h2>
+                                                                        <h3><u>{{$pub['titre']}}</u></h3>
                                                                         <img width="210px" height="100px"
                                                                              class="img-responsive img-centered"
                                                                              src="{{$pub['photo_couverture']}}" alt="">
@@ -133,14 +133,19 @@
                                                                             {{$pub['description']}}
                                                                         </p>
                                                                         <p>
-                                                                            {{$pub['nombre_numero']}} magazines par an <br>
-                                                                            {{$pub['prix_annuel']}}€ par an <br>
-                                                                            {{--Debut abonnement : {{$article['date_debut']}}<br>--}}
-                                                                            {{--Fin abonnement : {{$article['date_fin']}}--}}
+                                                                        <div class="form-group col-xs-6">
+                                                                            <b>Magazines /an</b> :<br>
+                                                                            <input type="text" value="{{$pub['nombre_numero']}}" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                                                        </div>
+
+                                                                        <div class="form-group col-xs-6">
+                                                                            <b>Prix /an</b> :<br>
+                                                                            <input type="text" value="{{$pub['prix_annuel']}}€" disabled style="text-align: center; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;width: 60px;margin-top: 8px;">
+                                                                        </div>
                                                                         </p>
 
                                                                         <button type="submit"
-                                                                                class="btn btn-warning glyphicon glyphicon-heart-empty">
+                                                                                class="btn btn-success glyphicon glyphicon-heart-empty">
                                                                             Relancer l'abonnement
                                                                         </button>
 
