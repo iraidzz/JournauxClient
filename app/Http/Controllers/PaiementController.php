@@ -16,7 +16,7 @@ class PaiementController
 
     public function DisplayPanier($id)
     {
-        $url = "http://10.0.10.110/api/client/panier/$id";
+        $url = "http://journaux.dev/api/client/panier/$id";
         //$url= "http://10.0.10.110/api/client/moncompte";
 
         $options = array(
@@ -57,7 +57,8 @@ class PaiementController
         $amount = request()->only('amount')['amount'];
 
         $ch = curl_init();
-        $url = "http://10.0.10.110/api/client/paiementfinal";
+        $url = "http://journaux.dev/api/client/paiementfinal";
+//        $url = "http://journaux.dev/api/client/paiementfinal";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);

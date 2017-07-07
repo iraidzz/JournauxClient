@@ -16,7 +16,7 @@ class ClientController extends Controller
         $ch = curl_init();
         // configuration des options
 //        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/enregistrer");
-        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/enregistrer");
+        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/enregistrer");
 //        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/enregistrer");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -49,7 +49,7 @@ class ClientController extends Controller
     public function mesanciensabonnements($id)
     {
 //        $url= "http://journaux.dev/api/client/mesanciensabonnements/$id";
-        $url= "http://10.0.10.110/api/client/mesanciensabonnements/$id";
+        $url= "http://journaux.dev/api/client/mesanciensabonnements/$id";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -76,7 +76,7 @@ class ClientController extends Controller
         curl_close($ch);
 
 
-        $url2= "http://10.0.10.110/api/magazine/lister";
+        $url2= "http://journaux.dev/api/magazine/lister";
 //        $url2= "http://journaux.dev/api/magazine/lister";
 
         $options2 = array(
@@ -113,7 +113,7 @@ class ClientController extends Controller
         //////////////////////////////////////////////////////////
 
 //        $url= "http://journaux.dev/api/client/mesabonnements/$id";
-        $url= "http://10.0.10.110/api/client/mesabonnements/$id";
+        $url= "http://journaux.dev/api/client/mesabonnements/$id";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -152,7 +152,7 @@ class ClientController extends Controller
 
 
 //        $url2= "http://journaux.dev/api/magazine/lister";
-        $url2= "http://10.0.10.110/api/magazine/lister";
+        $url2= "http://journaux.dev/api/magazine/lister";
 
         $options2 = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -188,7 +188,7 @@ class ClientController extends Controller
         $client_id=request()->only('client_id')['client_id'];
 
         $ch = curl_init();
-        $url = "http://10.0.10.110/api/client/suspendreabonnement";
+        $url = "http://journaux.dev/api/client/suspendreabonnement";
 //        $url = "http://journaux.dev/api/client/suspendreabonnement";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -221,7 +221,7 @@ class ClientController extends Controller
 
         $ch = curl_init();
 //        $url = "http://journaux.dev/api/client/renouvelerabonnement";
-        $url = "http://10.0.10.110/api/client/renouvelerabonnement";
+        $url = "http://journaux.dev/api/client/renouvelerabonnement";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -244,7 +244,7 @@ class ClientController extends Controller
 
         $ch = curl_init();
 //        $url = "http://journaux.dev/api/client/relancerabonnementarrete";
-        $url = "http://10.0.10.110/api/client/relancerabonnementarrete";
+        $url = "http://journaux.dev/api/client/relancerabonnementarrete";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -275,7 +275,7 @@ class ClientController extends Controller
 
         $ch = curl_init();
 //        $url = "http://journaux.dev/api/client/sabonner";
-        $url = "http://10.0.10.110/api/client/sabonner";
+        $url = "http://journaux.dev/api/client/sabonner";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -292,7 +292,7 @@ class ClientController extends Controller
     public function MonCompte($id)
     {
 //        $url= "http://journaux.dev/api/client/moncompte/$id";
-        $url= "http://10.0.10.110/api/client/moncompte/$id";
+        $url= "http://journaux.dev/api/client/moncompte/$id";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -319,7 +319,7 @@ class ClientController extends Controller
     public function DisplayEditCompte($id)
     {
 //        $url= "http://journaux.dev/api/client/affichereditcompte/$id";
-        $url= "http://10.0.10.110/api/client/affichereditcompte/$id";
+        $url= "http://journaux.dev/api/client/affichereditcompte/$id";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -360,7 +360,7 @@ class ClientController extends Controller
 
         $ch = curl_init();
 //        $url = "http://journaux.dev/api/client/edit";
-        $url = "http://10.0.10.110/api/client/edit";
+        $url = "http://journaux.dev/api/client/edit";
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
