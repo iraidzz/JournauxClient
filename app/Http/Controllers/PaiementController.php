@@ -17,7 +17,6 @@ class PaiementController
     public function DisplayPanier($id)
     {
         $url = "http://journaux.dev/api/client/panier/$id";
-        //$url= "http://10.0.10.110/api/client/moncompte";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -56,9 +55,11 @@ class PaiementController
         $cardyear = request()->only('cardyear')['cardyear'];
         $amount = request()->only('amount')['amount'];
 
+//        dd($clientid,$uuid,$cid,$cardnumber,$cardmonth,$cardyear,$amount);
+
         $ch = curl_init();
         $url = "http://journaux.dev/api/client/paiementfinal";
-//        $url = "http://journaux.dev/api/client/paiementfinal";
+
         // configuration des options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);

@@ -6,7 +6,6 @@
             <h4 style="font-family: 'Courier New'; font-size: 25px"><i>Informations paiement</i></h4>
             <hr>
 
-
             <form role="form" action="{{url('/client/paiementfinal')}}" method="post">
                 {!! csrf_field() !!}
                 <div class="row">
