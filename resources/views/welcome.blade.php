@@ -62,7 +62,7 @@
                             @endif
 
                             @if(Session::has('valid'))
-                                <div class="alert alert-sruccess">
+                                <div class="alert alert-success">
                                     <center> Inscription validée.<br>Veuilliez vous connecter.</center>
                                 </div>
                             @endif
