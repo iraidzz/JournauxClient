@@ -33,7 +33,8 @@
                                             <div class="col-md-4 col-sm-6 portfolio-item">
                                                 <h3><i>Vous n'avez pas d'abonnements à l'arrêt. Nous vous invitons à vous
                                                         redirigez vers la liste des magazines. </i><br><br><u><a
-                                                                href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">C'est
+{{--                                                                href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">C'est--}}
+                                                                href="{{url('/magazine/lister/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">C'est
                                                             par ici!</a></u></h3>
                                             </div>
                                         </div>

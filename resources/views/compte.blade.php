@@ -35,7 +35,7 @@
                 <label>Numero de téléphone</label>
                 <input name="numero_telephone" disabled type="text" class="form-control" value="{{  $patate['numero_telephone'] }}">
             </div>
-            <div class="col-lg-1"><a class="btn btn-warning" href="/client/affichereditcompte/{{ $patate['id']}}"> <b><u>Détails</u></b></a></div>
+            <div class="col-lg-1"><a class="btn btn-warning" href="{{url('/client/affichereditcompte/'.$patate['id'])}}"> <b><u>Détails</u></b></a></div>
 
         </div>
     </form>

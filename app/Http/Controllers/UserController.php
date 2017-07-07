@@ -20,8 +20,8 @@ class UserController extends Controller
 
         $ch = curl_init();
         // configuration des options
-        curl_setopt($ch, CURLOPT_URL, "http://journaux.dev/api/client/authentifier");
-//        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/api/client/authentifier");
+        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/journaux/public/api/client/authentifier");
+//        curl_setopt($ch, CURLOPT_URL, "http://10.0.10.110/journaux/public/api/client/authentifier");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         // data à envoyer

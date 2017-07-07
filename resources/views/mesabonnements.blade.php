@@ -54,7 +54,8 @@
                                         <div class="col-md-4 col-sm-6 portfolio-item">
                                             <h3><i>Oups... <br>Vous n'avez pour le moment aucun abonnement en cour. Nous
                                                     vous invitons à vous redirigez vers la liste des magazines. </i><br><br><u><a
-                                                            href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">C'est
+{{--                                                            href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">C'est--}}
+                                                            href="{{url('/magazine/lister/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">C'est
                                                         par ici!</a></u></h3>
                                         </div>
                                     </div>
@@ -186,7 +187,8 @@
 
                                                                     <div class="form-group col-xs-12">
                                                                         @if($article['paye']==0)
-                                                                            <a href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}" class="btn btn-warning glyphicon glyphicon-euro">
+{{--                                                                            <a href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}" class="btn btn-warning glyphicon glyphicon-euro">--}}
+                                                                            <a href="{{url('/client/panier/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}" class="btn btn-warning glyphicon glyphicon-euro">
                                                                                 A régler
                                                                             </a>
                                                                         @else

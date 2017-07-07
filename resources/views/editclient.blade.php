@@ -92,7 +92,8 @@
 
                                 <div class="form-group col-lg-12">
                                     <center><button type="submit" class="btn btn-warning">Modifier mes informations</button></center><br>
-                                    <a href="../../client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"  class="btn btn-info">Retour</a>
+                                    {{--<a href="../../client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"  class="btn btn-info">Retour</a>--}}
+                                    <a href="{{url('/client/moncompte/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}"  class="btn btn-info">Retour</a>
                                 </div>
 
                             </div>

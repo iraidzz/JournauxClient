@@ -19,7 +19,7 @@ class MagazineController
 
     public function DisplayMagazine($id)
     {
-        $url2= "http://journaux.dev/api/client/mesabonnements/$id";
+        $url2= "http://10.0.10.110/journaux/public/api/client/mesabonnements/$id";
 
         $options2 = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -51,7 +51,7 @@ class MagazineController
 
 
 
-        $url= "http://journaux.dev/api/magazine/lister";
+        $url= "http://10.0.10.110/journaux/public/api/magazine/lister";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -85,7 +85,7 @@ class MagazineController
 //        dd($id);
 
 
-        $url2= "http://journaux.dev/api/client/mesabonnements/$id";
+        $url2= "http://10.0.10.110/journaux/public/api/client/mesabonnements/$id";
 
         $options2 = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -113,7 +113,7 @@ class MagazineController
 
 
 
-        $url= "http://journaux.dev/api/magazine/filtrer";
+        $url= "http://10.0.10.110/journaux/public/api/magazine/filtrer";
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page

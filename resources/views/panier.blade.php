@@ -24,7 +24,8 @@
                                     <tr>
                                         <td>{{  $patate['publication']['titre'] }}</td>
                                         <td>{{  $patate['prix'] }}€</td>
-                                        <td><a class="btn btn-block btn-warning" href="/client/paiement/{{ $patate['id'] }}/{{  $patate['prix'] }}"> <b>Payer</b></a></td>
+{{--                                        <td><a class="btn btn-block btn-warning" href="/client/paiement/{{ $patate['id'] }}/{{  $patate['prix'] }}"> <b>Payer</b></a></td>--}}
+                                        <td><a class="btn btn-block btn-warning" href="{{url('/client/paiement/'.$patate['id'].'/'.$patate['prix'])}}"> <b>Payer</b></a></td>
                                         <?php $sum+=$patate['prix'] ?>
                                     </tr>
                                 @endforeach

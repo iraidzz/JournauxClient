@@ -12,17 +12,17 @@
     <title>Application abonnement Magazines</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/journauxclient/public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/journauxclient/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="../../../css/agency.min.css" rel="stylesheet">
+    <link href="/journauxclient/public/css/agency.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,26 +70,33 @@
                     <li><a href="{{url('/client/inscription')}}">S'enregistrer</a></li>
                 @else
                     <li>
-                        <a class="page-scroll text-primary" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>
+                        {{--<a class="page-scroll text-primary" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>--}}
+                        <a class="page-scroll text-primary" href="{{url('/client/moncompte/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Bonjour <b>{{\Illuminate\Support\Facades\Cookie::get('CookieName')}}</b></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Liste des magazines</a>
+{{--                        <a class="page-scroll" href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Liste des magazines</a>--}}
+                        <a class="page-scroll" href="{{url('/magazine/lister/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Liste des magazines</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>
+{{--                        <a class="page-scroll" href="/client/mesabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes abonnements en cours</a>--}}
+                        <a class="page-scroll" href="{{url('/client/mesabonnements/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Mes abonnements en cours</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/client/mesanciensabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes anciens abonnemnents</a>
+{{--                        <a class="page-scroll" href="/client/mesanciensabonnements/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mes anciens abonnemnents</a>--}}
+                        <a class="page-scroll" href="{{url('/client/mesanciensabonnements/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Mes anciens abonnemnents</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>
+{{--                        <a class="page-scroll" href="/client/moncompte/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Mon compte</a>--}}
+                        <a class="page-scroll" href="{{url('/client/moncompte/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Mon compte</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Panier</a>
+{{--                        <a class="page-scroll" href="/client/panier/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}">Panier</a>--}}
+                        <a class="page-scroll" href="{{url('/client/panier/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}">Panier</a>
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="/client/logout">Déconnexion</a>
+                        {{--<a class="page-scroll" href="/client/logout">Déconnexion</a>--}}
+                        <a class="page-scroll" href="{{url('/client/logout')}}">Déconnexion</a>
                         <form id="logout-form" action="{{ action('UserController@Logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -118,20 +125,20 @@
 </footer>
 
 <!-- jQuery -->
-<script src="../../../js/jquery.min.js"></script>
+<script src="/journauxclient/public/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../../js/bootstrap.min.js"></script>
+<script src="/journauxclient/public/js/bootstrap.min.js"></script>
 
 <!-- Plugin JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
 <!-- Contact Form JavaScript -->
-<script src="../../../js/jqBootstrapValidation.js"></script>
-<script src="../../../js/contact_me.js"></script>
+<script src="/journauxclient/public/js/jqBootstrapValidation.js"></script>
+<script src="/journauxclient/public/js/contact_me.js"></script>
 
 <!-- Theme JavaScript -->
-<script src="../../../js/agency.min.js"></script>
+<script src="/journauxclient/public/js/agency.min.js"></script>
 
 </body>
 

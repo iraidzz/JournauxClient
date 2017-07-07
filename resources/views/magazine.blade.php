@@ -23,7 +23,8 @@
             <div class="form-group col-lg-3">
                 <center>
                     <button type="submit" class="btn btn-warning">Rechercher</button>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                            href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"
+{{--                            href="/magazine/lister/{{\Illuminate\Support\Facades\Cookie::get('CookieId')}}"--}}
+                            href="{{url('/magazine/lister/'.\Illuminate\Support\Facades\Cookie::get('CookieId'))}}"
                             class="btn btn-info">Retour</a></center>
             </div>
     </form>
@@ -50,7 +51,7 @@
                             @endif
 
                             <div class="form-group col-xs-6">
-                                <label>Parutions</label>
+                                <label>Parutions</label><br>
                                 <a href="#portfolioModal{{$article['id']}}" class="btn btn-primary" data-toggle="modal">
                                     <i class="glyphicon glyphicon-list-alt"> {{$article['nombre_numero']}}</i>
                                 </a>
