@@ -152,7 +152,7 @@ class ClientController extends Controller
 
 
 //        $url2= "http://journaux.dev/api/magazine/lister";
-        $url= "http://10.0.10.110/api/magazine/lister";
+        $url2= "http://10.0.10.110/api/magazine/lister";
 
         $options2 = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -272,11 +272,6 @@ class ClientController extends Controller
         $date_pause=$date_fin;
 
         $etat=request()->only('etat')['etat'];
-
-        //dd($date_debut);
-        //$date_debut="2019-12-02";
-        //$date_fin="2020-12-02";
-        //$date_pause="2001-01-01";
 
         $ch = curl_init();
 //        $url = "http://journaux.dev/api/client/sabonner";
