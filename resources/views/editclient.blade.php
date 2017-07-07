@@ -6,11 +6,10 @@
             <div class="row">
                 <div class="box text-center">
                     <div class="col-lg-12 text-center">
+
+                        <h4 style="font-family: 'Courier New'; font-size: 25px"><i>Modifier vos informations</i></h4>
                         <hr>
-                        <h2 class="intro-text text-center">Modifier vos
-                            <strong>Informations</strong>
-                        </h2>
-                        <hr>
+
                     </div>
                     <div class="col-md-offset-3 col-md-6 text-center">
                         <form role="form" action="{{url('/client/edit')}}" method="post">

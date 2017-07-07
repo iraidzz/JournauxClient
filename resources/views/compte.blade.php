@@ -4,6 +4,9 @@
     @foreach ($compteinfo as $patate)
         <div class="col-md-offset-3 col-md-6 text-center">
 
+            <h4 style="font-family: 'Courier New'; font-size: 25px"><i>Informations du compte</i></h4>
+            <hr>
+
     <form>
         {!! csrf_field() !!}
         <div class="row">
