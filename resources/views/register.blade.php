@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Numéro de téléphone</label>
                                 <div class="col-md-6">
-                                    <input type="number" class="form-control" name="numero_telephone" required>
+                                    <input type="text" maxlength="10" name="numero_telephone" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                                 </div>
                             </div>
 
@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Code postal</label>
                                 <div class="col-md-6">
-                                    <input type="number" class="form-control" name="postal_domicile" required>
+                                    <input type="text" maxlength="5" name="postal_domicile" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" value="" required>
                                 </div>
                             </div>
 
